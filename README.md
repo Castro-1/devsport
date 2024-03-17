@@ -78,7 +78,26 @@ php artisan key:generate
 
 This key is used for encryption and should be kept secret.
 
-## How To Use The Models
+
+### Step 6: Laravel Localization:
+
+1. Publishing the Language Files: 
+By default, the Laravel application skeleton does not include the lang directory. You should scaffold the lang directory:
+
+```
+php artisan lang:publish
+```
+
+2. Add a Secong Lenguage Support:
+```
+composer require laravel-lang/common --dev
+```
+
+```
+php artisan lang:add es
+```
+
+### How To Use The Models
 
 Into phpMyAdmin create a new database called "devSport".
 
