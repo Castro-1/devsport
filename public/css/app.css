@@ -1,5 +1,6 @@
 .bg-secondary {
     background-color: #2c3e50 !important;
+<<<<<<< HEAD
 }
 
 .copyright {
@@ -19,3 +20,24 @@ nav {
 
     object-fit: cover;
 }
+=======
+  }
+  
+  .copyright {
+    background-color: #1a252f;
+  }
+  
+  .bg-primary {
+    background-color: #1abc9c !important;
+  }
+  
+  nav{
+    font-weight: 700;
+  }
+  
+  .img-card{
+    height: 18vw;
+    object-fit: cover;
+  }
+  
+>>>>>>> smcastril1/user-order
