@@ -212,5 +212,12 @@
     
 
     "A Laravel Online Store": "Tienda virtual de Laravel",
-    "Welcome to the application.": "Bienvenido a la aplicación."
+    "This is the home page.": "Esta es la página de inicio.",
+    "Home Page": "Inicio",
+
+    "Admin Panel": "Panel de administración",
+    "Admin - Home": "Admin - Inicio",
+    "Admin - Products": "Admin - Productos",
+    "Go back to the home page": "Volver a la página de inicio",
+    "Welcome to the Admin Panel, use the sidebar to navigate between the different options.": "Bienvenido a la página de inicio, usa la barra de navegación para explorar las diferenctes opciones"
 }
