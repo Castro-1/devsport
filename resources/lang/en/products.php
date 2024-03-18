@@ -2,14 +2,17 @@
 
 return [
     'title' => [
-        'index' => 'Products - Online Store',
+        'index' => 'Products - DevSport',
         'create' => 'Create Product',
-        'show_prefix' => '- Online Store',
+        'show_prefix' => '- DevSport',
         'show_info_prefix' => '- Product Information',
+        'search_results' => '- Search Results',
     ],
     'subtitle' => [
-        'index' => 'List of products',
+        'index' => 'All products',
+        'show' => ' - Product Information',
         'create' => 'Create a new product',
+        'search_results' => 'Search results',
     ],
     'validation' => [
         'name_required' => 'The name is required.',
@@ -23,5 +26,10 @@ return [
         'price' => 'Enter the product price',
         'stock' => 'Enter the product stock',
     ],
-    // Puedes continuar agregando más claves y valores según necesites.
+    'search' => [
+        'placeholder' => 'Search products',
+        'submit' => 'Search',
+        'return' => 'Show all products',
+        'not_found' => 'No products found.',
+    ],
 ];

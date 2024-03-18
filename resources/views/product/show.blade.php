@@ -9,10 +9,12 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
+                    <p class="card-text">{{ $viewData['product']->getCategory() }}</p>
                     <h5 class="card-title">
                         {{ $viewData['product']->getName() }}
                     </h5>
                     <p class="card-text">{{ $viewData['product']->getDescription() }}</p>
+                    <p class="card-text">{{ $viewData['product']->getPrice() }}</p>
                 </div>
             </div>
         </div>
