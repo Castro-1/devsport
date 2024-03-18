@@ -2,8 +2,14 @@
 
 namespace Database\Seeders;
 
+<<<<<<< Updated upstream
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+=======
+use App\Models\Product;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+>>>>>>> Stashed changes
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
