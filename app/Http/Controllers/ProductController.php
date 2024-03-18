@@ -13,12 +13,13 @@ class ProductController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = __('products.title.index');
-        $viewData['subtitle'] = __('products.subtitle.index');
+        $viewData['title'] = 'Products Page';
+        $viewData['subtitle'] = 'List of Products';
         $viewData['products'] = Product::all();
 
         return view('product.index')->with('viewData', $viewData);
     }
+
 
     public function show(string $id): View|RedirectResponse
     {

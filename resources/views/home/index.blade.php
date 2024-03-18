@@ -5,3 +5,5 @@
     {{ __('This is the home page.') }}
 </div>
 @endsection
+
+
