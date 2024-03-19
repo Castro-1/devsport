@@ -32,4 +32,24 @@ return [
         'return' => 'Show all products',
         'not_found' => 'No products found.',
     ],
+    'button' => [
+        'add_to_cart' => 'Add to cart',
+        'remove_from_cart' => 'Remove',
+        'remove_all_from_cart' => 'Remove all products from cart',
+    ],
+    'label' => [
+        'name' => 'Name',
+        'description' => 'Description',
+        'category' => 'Category',
+        'image' => 'Image',
+        'price' => 'Price',
+        'stock' => 'Stock',
+        'quantity' => 'Quantity',
+        'total' => 'Total',
+        'created_at' => 'Created at',
+        'updated_at' => 'Updated at',
+    ],
+    'cart' => [
+        'empty' => 'Cart is empty',
+    ],
 ];

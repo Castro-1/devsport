@@ -20,6 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('home.index') }}">{{ __('Home') }}</a>
+          <a class="nav-link active" href="{{ route('product.index') }}">{{ __('layout.products') }}</a>
           <a class="nav-link active" href="#">{{ __('About') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div> 
           @guest 

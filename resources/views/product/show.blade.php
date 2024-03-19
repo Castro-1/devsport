@@ -15,6 +15,8 @@
                     </h5>
                     <p class="card-text">{{ $viewData['product']->getDescription() }}</p>
                     <p class="card-text">{{ $viewData['product']->getPrice() }}</p>
+                    <a href="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}"
+                        class="btn bg-primary text-white">{{ __('products.button.add_to_cart') }}</a>
                 </div>
             </div>
         </div>
