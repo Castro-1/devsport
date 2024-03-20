@@ -35,21 +35,6 @@ class ProductController extends Controller
         return view('product.show')->with('viewData', $viewData);
     }
 
-    // public function create(): View
-    // {
-    //     $viewData = [];
-    //     $viewData['title'] = __('products.title.create');
-
-    //     return view('product.create')->with('viewData', $viewData);
-    // }
-
-    // public function save(StoreProductRequest $request): RedirectResponse
-    // {
-    //     Product::create($request->only(['name', 'description', 'category', 'image', 'price', 'stock']));
-
-    //     return back();
-    // }
-
     public function search(Request $request): View|RedirectResponse
     {
         $searchTerm = $request->get('search');
