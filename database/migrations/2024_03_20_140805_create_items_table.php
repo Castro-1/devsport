@@ -8,25 +8,29 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            // TODO: Uncomment this once the orders table is created
-            // $table->foreignId('order_id')->constrained()->onDelete('cascade'); // foreign key to orders table, delete item when order is deleted
-            $table->unsignedBigInteger('order_id');
-            $table->foreignId('product_id')->constrained();
             $table->integer('quantity');
             $table->integer('price');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('items');
     }
