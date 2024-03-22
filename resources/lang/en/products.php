@@ -32,6 +32,13 @@ return [
         'return' => 'Show all products',
         'not_found' => 'No products found.',
     ],
+    'filter' => [
+        'label' => 'Sort by:',
+        'options' => [
+            'asc' => 'Price: Low to High',
+            'desc' => 'Price: High to Low',
+        ],
+    ],
     'button' => [
         'add_to_cart' => 'Add to cart',
         'remove_from_cart' => 'Remove',

@@ -3,13 +3,29 @@
 @section('subtitle', $viewData['subtitle'])
 @section('content')
     <div class="container">
-        <form action="{{ route('product.search') }}" method="GET">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="{{ __('products.search.placeholder') }}" name="search">
-                <button class="btn btn-outline-secondary" type="submit"
-                    id="button-addon2">{{ __('products.search.submit') }}</button>
+        <div class="row">
+            <div class="col-9">
+                <form action="{{ route('product.index') }}" method="GET">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="{{ __('products.search.placeholder') }}"
+                            name="search" value="{{ request('search') }}">
+                        <input type="hidden" name="sort" value="{{ request('sort') }}">
+                        <button class="btn btn-outline-secondary" type="submit"
+                            id="button-addon2">{{ __('products.search.submit') }}</button>
+                    </div>
+                </form>
             </div>
-        </form>
+            <div class="col-3 d-flex align-items-center justify-content-end mb-3 gap-2">
+                <span class="mr-2" style="white-space: nowrap;">{{__('products.filter.label')}} </span>
+                <form action="{{ route('product.index') }}" method="GET" class="flex-grow-1">
+                    <input type="hidden" name="search" value="{{ request('search') }}">
+                    <select class="form-control" name="sort" onchange="this.form.submit()">
+                        <option value="asc" {{ request('sort') == 'asc' ? 'selected' : '' }}>{{__('products.filter.options.asc')}}</option>
+                        <option value="desc" {{ request('sort') == 'desc' ? 'selected' : '' }}>{{__('products.filter.options.desc')}}</option>
+                    </select>
+                </form>
+            </div>
+        </div>
         <div class="row">
             @if ($viewData['products']->isEmpty())
                 <p>{{ __('products.search.not_found') }}</p>
