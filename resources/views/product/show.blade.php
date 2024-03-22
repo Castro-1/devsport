@@ -12,6 +12,7 @@
                     <h5 class="card-title">
                         {{ $viewData['product']->getName() }} (${{ $viewData['product']->getPrice() }})
                     </h5>
+                    <p class="card-text">{{ $viewData['product']->getCategory() }}</p>
                     <p class="card-text">{{ $viewData['product']->getDescription() }}</p>
                     <p class="card-text">
                     <form method="GET" action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}">

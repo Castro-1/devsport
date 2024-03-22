@@ -13,15 +13,23 @@ class ProductController extends Controller
     public function index(Request $request): View
     {
         $searchTerm = $request->get('search');
+        $category = $request->get('category');
         $sort = $request->get('sort');
+
         $viewData = [];
 
         $products = Product::query();
 
         if ($searchTerm) {
-            $products->where('name', 'like', '%'.$searchTerm.'%')
-                ->orWhere('description', 'like', '%'.$searchTerm.'%');
+            $products->where(function ($query) use ($searchTerm) {
+                $query->where('name', 'like', '%'.$searchTerm.'%')
+                    ->orWhere('description', 'like', '%'.$searchTerm.'%');
+            });
             $viewData['searchPerformed'] = true;
+        }
+
+        if ($category) {
+            $products->where('category', $category);
         }
 
         if ($sort) {
@@ -30,6 +38,7 @@ class ProductController extends Controller
             $products->orderBy('price', 'asc');
         }
 
+        $viewData['categories'] = Product::select('category')->distinct()->get();
         $viewData += $this->getViewData(__('products.title.index'), __('products.subtitle.index'));
         $viewData['products'] = $products->get();
 

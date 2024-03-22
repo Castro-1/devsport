@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-9">
+            <div class="col-6">
                 <form action="{{ route('product.index') }}" method="GET">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="{{ __('products.search.placeholder') }}"
@@ -16,12 +16,32 @@
                 </form>
             </div>
             <div class="col-3 d-flex align-items-center justify-content-end mb-3 gap-2">
-                <span class="mr-2" style="white-space: nowrap;">{{__('products.filter.label')}} </span>
+                <span class="mr-2" style="white-space: nowrap;">{{ __('products.filter.category') }} </span>
                 <form action="{{ route('product.index') }}" method="GET" class="flex-grow-1">
                     <input type="hidden" name="search" value="{{ request('search') }}">
+                    <input type="hidden" name="sort" value="{{ request('sort') }}">
+                    <select class="form-control" name="category" onchange="this.form.submit()">
+                        <option value="" {{ request('category') == '' ? 'selected' : '' }}>
+                            {{ __('products.filter.options.all') }}</option>
+                        @foreach ($viewData['categories'] as $category)
+                            <option value="{{ $category['category'] }}"
+                                {{ request('category') == $category['category'] ? 'selected' : '' }}>
+                                {{ $category['category'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end mb-3 gap-2">
+                <span class="mr-2" style="white-space: nowrap;">{{ __('products.filter.sort') }} </span>
+                <form action="{{ route('product.index') }}" method="GET" class="flex-grow-1">
+                    <input type="hidden" name="search" value="{{ request('search') }}">
+                    <input type="hidden" name="category" value="{{ request('category') }}">
                     <select class="form-control" name="sort" onchange="this.form.submit()">
-                        <option value="asc" {{ request('sort') == 'asc' ? 'selected' : '' }}>{{__('products.filter.options.asc')}}</option>
-                        <option value="desc" {{ request('sort') == 'desc' ? 'selected' : '' }}>{{__('products.filter.options.desc')}}</option>
+                        <option value="asc" {{ request('sort') == 'asc' ? 'selected' : '' }}>
+                            {{ __('products.filter.options.asc') }}</option>
+                        <option value="desc" {{ request('sort') == 'desc' ? 'selected' : '' }}>
+                            {{ __('products.filter.options.desc') }}</option>
                     </select>
                 </form>
             </div>

@@ -33,10 +33,12 @@ return [
         'not_found' => 'No products found.',
     ],
     'filter' => [
-        'label' => 'Sort by:',
+        'sort' => 'Sort by:',
+        'category' => 'Category:',
         'options' => [
             'asc' => 'Price: Low to High',
             'desc' => 'Price: High to Low',
+            'all' => 'All products',
         ],
     ],
     'button' => [
