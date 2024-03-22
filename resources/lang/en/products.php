@@ -2,6 +2,7 @@
 
 return [
     'title' => [
+        'new' => 'New Product',
         'index' => 'Products - DevSport',
         'create' => 'Create Product',
         'show_prefix' => '- DevSport',
@@ -45,6 +46,7 @@ return [
         'add_to_cart' => 'Add to cart',
         'remove_from_cart' => 'Remove',
         'remove_all_from_cart' => 'Remove all products from cart',
+        'details' => 'Details',
     ],
     'label' => [
         'name' => 'Name',

@@ -58,7 +58,7 @@
                             </a>
                             <div class="card-body text-center">
                                 <p>{{ $product->getName() }}</p>
-                                <p>{{ $product->getPrice() }}</p>
+                                <p>${{ $product->getPrice() }}</p>
                                 <a href="{{ route('cart.add', ['id' => $product->getId()]) }}"
                                     class="btn bg-primary text-white">{{ __('products.button.add_to_cart') }}</a>
                             </div>
