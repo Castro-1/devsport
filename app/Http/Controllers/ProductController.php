@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductRequest;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\RedirectResponse;

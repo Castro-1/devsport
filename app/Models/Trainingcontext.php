@@ -19,7 +19,6 @@ class Trainingcontext extends Model
      * $this->attributes['objectives'] - json - contains the trainingcontext objectives
      * $this->attributes['specifications'] - string - contains the trainingcontext specifications
      */
-
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -80,7 +79,7 @@ class Trainingcontext extends Model
         return $this->attributes['specifications'];
     }
 
-     protected $fillable = [
+    protected $fillable = [
         'time',
         'place',
         'frequency',
@@ -97,5 +96,4 @@ class Trainingcontext extends Model
     {
         return $this->hasMany(Routine::class);
     }
-
 }

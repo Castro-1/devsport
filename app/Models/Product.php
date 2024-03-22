@@ -18,8 +18,8 @@ class Product extends Model
      * $this->attributes['image'] - string - contains the product image
      * $this->attributes['price'] - int - contains the product price
      * $this->attributes['stock'] - int - contains the product stock
-     * $this->attributes['created_at'] - timestamp - contains the product's creation date 
-     * $this->attributes['updated_at'] - timestamp - contains the product's update date 
+     * $this->attributes['created_at'] - timestamp - contains the product's creation date
+     * $this->attributes['updated_at'] - timestamp - contains the product's update date
      */
     protected $fillable = [
         'name',
@@ -41,14 +41,14 @@ class Product extends Model
         ]);
     }
 
-    public static function sumPricesByQuantities($products, $productsInSession): int 
-    { 
-        $total = 0; 
-        foreach ($products as $product) { 
-            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]); 
-        } 
- 
-        return $total; 
+    public static function sumPricesByQuantities($products, $productsInSession): int
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
+        }
+
+        return $total;
     }
 
     public function getId(): int
@@ -117,12 +117,12 @@ class Product extends Model
     }
 
     public function getCreatedAt(): string
-    { 
-        return $this->attributes['created_at']; 
-    } 
+    {
+        return $this->attributes['created_at'];
+    }
 
     public function getUpdatedAt(): string
-    { 
-        return $this->attributes['updated_at']; 
-    } 
+    {
+        return $this->attributes['updated_at'];
+    }
 }

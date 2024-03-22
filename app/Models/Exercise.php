@@ -14,13 +14,12 @@ class Exercise extends Model
      * $this->attributes['id'] - int - contains the exercise primary key (id)
      * $this->attributes['routines_id'] - int - contains the exercise routines_id
      * $this->attributes['name'] - string - contains the  exercise name
-     * $this->attributes['musclegroup'] - string - contains the exercise musclegroup 
+     * $this->attributes['musclegroup'] - string - contains the exercise musclegroup
      * $this->attributes['image'] - string - contains the exercise image
      * $this->attributes['recommendations'] - string - contains the exercise recommendations
      * $this->attributes['repetitions'] - int - contains the exercise repetitions
      * $this->attributes['sets'] - int - contains the exercise sets
      */
-
     public function getId(): int
     {
         return $this->attributes['id'];

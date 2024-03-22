@@ -25,7 +25,7 @@
                     {{-- <a class="nav-link active" href="#">{{ __('About') }}</a> --}}
                     <a class="nav-link active" href="{{ route('product.index') }}">{{ __('layout.products') }}</a>
                     <a class="nav-link active" href="{{ route('cart.index') }}">
-                        {{ __('Cart') }} 
+                        {{ __('layout.cart') }}
                         @if (session('cart_product_data'))
                             ({{ array_sum(session('cart_product_data')) }})
                         @else

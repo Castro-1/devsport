@@ -31,8 +31,8 @@ class CartController extends Controller
         }
 
         $viewData = [];
-        $viewData['title'] = 'Cart - Online Store';
-        $viewData['subtitle'] = 'Shopping Cart';
+        $viewData['title'] = __('cart.title.index');
+        $viewData['subtitle'] = __('cart.subtitle.index');
         $viewData['cartProducts'] = $cartProducts;
         $viewData['totalCost'] = $totalCost;
 
@@ -42,10 +42,11 @@ class CartController extends Controller
     public function add(string $id, Request $request): RedirectResponse
     {
         $cartProductData = $request->session()->get('cart_product_data');
+        $quantity = $request->get('quantity', 1);
         if (! isset($cartProductData[$id])) {
-            $cartProductData[$id] = 1;
+            $cartProductData[$id] = $quantity;
         } else {
-            $cartProductData[$id] += 1;
+            $cartProductData[$id] += $quantity;
         }
 
         $request->session()->put('cart_product_data', $cartProductData);

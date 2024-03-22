@@ -24,8 +24,8 @@ class User extends Authenticatable
      * $this->attributes['weight'] - int - contains the user's weight
      * $this->attributes['height'] - int - contains the user's height
      * $this->attributes['gender'] - char - contains the user's gender
-     * $this->attributes['created_at'] - timestamp - contains the user's creation date 
-     * $this->attributes['updated_at'] - timestamp - contains the user's update date 
+     * $this->attributes['created_at'] - timestamp - contains the user's creation date
+     * $this->attributes['updated_at'] - timestamp - contains the user's update date
      */
 
     /**
@@ -67,71 +67,68 @@ class User extends Authenticatable
         ];
     }
 
-
     public function getId(): int
-    { 
-        return $this->attributes['id']; 
-    } 
- 
+    {
+        return $this->attributes['id'];
+    }
+
     public function getName(): string
-    { 
-        return $this->attributes['name']; 
-    } 
- 
+    {
+        return $this->attributes['name'];
+    }
+
     public function setName(string $name): void
-    { 
-        $this->attributes['name'] = $name; 
-    } 
- 
+    {
+        $this->attributes['name'] = $name;
+    }
+
     public function getEmail(): string
-    { 
-        return $this->attributes['email']; 
-    } 
+    {
+        return $this->attributes['email'];
+    }
 
     public function setEmail(string $email): void
-    { 
-        $this->attributes['email'] = $email; 
-    } 
- 
-    public function getPassword(): string 
-    { 
-        return $this->attributes['password']; 
-    } 
- 
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->attributes['password'];
+    }
+
     public function setPassword(string $password): void
-    { 
-        $this->attributes['password'] = $password; 
-    } 
- 
-    public function getRole(): string 
-    { 
-        return $this->attributes['role']; 
-    } 
- 
+    {
+        $this->attributes['password'] = $password;
+    }
+
+    public function getRole(): string
+    {
+        return $this->attributes['role'];
+    }
+
     public function setRole(string $role): void
-    { 
-        $this->attributes['role'] = $role; 
-    } 
- 
-    public function getBalance(): int 
-    { 
-        return $this->attributes['balance']; 
-    } 
- 
+    {
+        $this->attributes['role'] = $role;
+    }
+
+    public function getBalance(): int
+    {
+        return $this->attributes['balance'];
+    }
+
     public function setBalance(int $balance): void
-    { 
-        $this->attributes['balance'] = $balance; 
-    } 
- 
+    {
+        $this->attributes['balance'] = $balance;
+    }
+
     public function getCreatedAt(): string
-    { 
-        return $this->attributes['created_at']; 
-    } 
- 
+    {
+        return $this->attributes['created_at'];
+    }
+
     public function getUpdatedAt(): string
-    { 
-        return $this->attributes['updated_at']; 
-    } 
-
-
+    {
+        return $this->attributes['updated_at'];
+    }
 }

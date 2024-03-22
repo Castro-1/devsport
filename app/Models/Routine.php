@@ -15,7 +15,6 @@ class Routine extends Model
      * $this->attributes['type'] - string - contains the  routine type
      * $this->attributes['trainingcontext_id'] - int - contains the routine trainingcontext_id
      */
-    
     public function getId(): int
     {
         return $this->attributes['id'];
