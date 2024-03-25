@@ -4,17 +4,17 @@
 @section('content')
 <div class="card"> 
   <div class="card-header"> 
-    Products in Cart 
+    {{ __('cart.products_in_cart') }}
   </div> 
   <div class="card-body"> 
     <table class="table table-bordered table-striped text-center"> 
       <thead> 
         <tr> 
           <th scope="col">ID</th> 
-          <th scope="col">Name</th> 
-          <th scope="col">Price</th> 
-          <th scope="col">Quantity</th>
-          <th scope="col">Remove</th> 
+          <th scope="col">{{ __('products.label.name') }}</th> 
+          <th scope="col">{{ __('products.label.price') }}</th> 
+          <th scope="col">{{ __('products.label.quantity') }}</th>
+          <th scope="col">{{ __('products.label.remove') }}</th>
         </tr> 
       </thead> 
       <tbody> 
@@ -40,13 +40,15 @@
     <br> 
     <div class="row"> 
       <div class="text-end"> 
-        <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["totalCost"] }}</a> 
-        <a class="btn bg-primary text-white mb-2">Purchase</a> 
+        <a class="btn btn-outline-secondary mb-2"><b>{{ __('products.label.total') }}:</b> ${{ $viewData["totalCost"] }}</a> 
+        @if (count($viewData["cartProducts"]) > 0) 
+        <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">{{ __('products.button.purchase') }}</a> 
         <a href="{{ route('cart.removeAll') }}"> 
           <button class="btn btn-danger mb-2"> 
-            Remove all products from Cart 
+            {{ __('products.button.remove_all_from_cart') }}  
           </button> 
-        </a> 
+        </a>
+        @endif 
       </div> 
     </div> 
   </div> 

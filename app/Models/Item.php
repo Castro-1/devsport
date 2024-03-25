@@ -9,22 +9,30 @@ class Item extends Model
     /**
      * ITEM ATTRIBUTES
      * $this->attributes['id'] - int - contains the item primary key (id)
-     * $this->attributes['order_id'] - int - contains the id of the order associated to the item
-     * $this->attributes['product_id'] - int - contains the id of the product associated to the item
      * $this->attributes['quantity'] - int - contains the item quantity
      * $this->attributes['price'] - int - contains the item price
+     * $this->attributes['order_id'] - int - contains the id of the order associated to the item
+     * $this->attributes['product_id'] - int - contains the id of the product associated to the item
+     * $this->attributes['created_at'] - timestamp - contains the item creation date
+     * $this->attributes['updated_at'] - timestamp - contains the item update date
+     * $this->order - Order - contains the associated Order
+     * $this->product - Product - contains the associated Product
      */
     protected $fillable = ['order_id', 'product_id', 'quantity', 'price'];
 
-    // TODO: Uncomment this once the orders table is created
-    // public function order()
-    // {
-    //     return $this->belongsTo(Order::class);
-    // }
-
-    public function product()
+    public static function validate($request)
     {
-        return $this->belongsTo(Product::class);
+        $request->validate([
+            'price' => 'required|numeric|gt:0',
+            'quantity' => 'required|numeric|gt:0',
+            'product_id' => 'required|exists:products,id',
+            'order_id' => 'required|exists:orders,id',
+        ]);
+    }
+
+    public function getId(): int
+    {
+        return $this->attributes['id'];
     }
 
     public function getQuantity(): int
@@ -45,5 +53,65 @@ class Item extends Model
     public function setPrice(int $price): void
     {
         $this->attributes['price'] = $price;
+    }
+
+    public function getOrderId(): int
+    {
+        return $this->attributes['order_id'];
+    }
+
+    public function setOrderId(int $orderId): void
+    {
+        $this->attributes['order_id'] = $orderId;
+    }
+
+    public function getProductId(): int
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setProductId(int $productId): void
+    {
+        $this->attributes['product_id'] = $productId;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function order(): Order
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function getOrder(): Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(Order $order): void
+    {
+        $this->order = $order;
+    }
+
+    public function product(): Product
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function getProduct(): Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(Product $product): void
+    {
+        $this->product = $product;
     }
 }

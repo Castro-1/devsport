@@ -26,6 +26,7 @@ class User extends Authenticatable
      * $this->attributes['gender'] - char - contains the user's gender
      * $this->attributes['created_at'] - timestamp - contains the user's creation date
      * $this->attributes['updated_at'] - timestamp - contains the user's update date
+     * $this->orders - Order[] - contains the associated orders
      */
 
     /**
@@ -130,5 +131,20 @@ class User extends Authenticatable
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function orders(): Order
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrders(): Order
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Order $orders): void
+    {
+        $this->orders = $orders;
     }
 }

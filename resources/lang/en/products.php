@@ -47,6 +47,7 @@ return [
         'remove_from_cart' => 'Remove',
         'remove_all_from_cart' => 'Remove all products from cart',
         'details' => 'Details',
+        'purchase' => 'Purchase',
     ],
     'label' => [
         'name' => 'Name',
@@ -57,6 +58,7 @@ return [
         'stock' => 'Stock',
         'quantity' => 'Quantity',
         'total' => 'Total',
+        'remove' => 'Remove',
         'created_at' => 'Created at',
         'updated_at' => 'Updated at',
     ],

@@ -20,6 +20,7 @@ class Product extends Model
      * $this->attributes['stock'] - int - contains the product stock
      * $this->attributes['created_at'] - timestamp - contains the product's creation date
      * $this->attributes['updated_at'] - timestamp - contains the product's update date
+     * $this->items - Item[] - contains the associated items
      */
     protected $fillable = [
         'name',
@@ -30,7 +31,7 @@ class Product extends Model
         'stock',
     ];
 
-    public static function validate($request)
+    public static function validate($request): void
     {
         $request->validate([
             'name' => 'required|max:255',
@@ -124,5 +125,20 @@ class Product extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function items(): Item
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Item
+    {
+        return $this->items;
+    }
+
+    public function setItems(Item $items): void
+    {
+        $this->items = $items;
     }
 }
