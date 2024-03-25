@@ -12,23 +12,14 @@ class CartController extends Controller
 {
     public function index(Request $request): View
     {
-        $cartProducts = [];
-        $cartProductData = $request->session()->get('cart_product_data', []);
-
         $totalCost = 0;
-
-        foreach ($cartProductData as $productId => $quantity) {
-            try {
-                $product = Product::findOrFail($productId);
-            } catch (Exception $e) {
-                continue;
-            }
-            $cartProducts[$productId] = [
-                'quantity' => $quantity,
-                'product' => $product,
-            ];
-            $totalCost += $product['price'] * $quantity;
-        }
+        $cartProducts = [];
+        $cartProductData = $request->session()->get('cartProducts'); 
+        if ($cartProductData) { 
+            $cartProducts = Product::findMany(array_keys($cartProductData)); 
+            $totalCost = Product::sumPricesByQuantities($cartProducts, $cartProductData); 
+        } 
+        
 
         $viewData = [];
         $viewData['title'] = __('cart.title.index');
@@ -41,29 +32,29 @@ class CartController extends Controller
 
     public function add(string $id, Request $request): RedirectResponse
     {
-        $cartProductData = $request->session()->get('cart_product_data');
+        $cartProducts = $request->session()->get('cartProducts');
         $quantity = $request->get('quantity', 1);
-        if (! isset($cartProductData[$id])) {
-            $cartProductData[$id] = $quantity;
+        if (! isset($cartProducts[$id])) {
+            $cartProducts[$id] = $quantity;
         } else {
-            $cartProductData[$id] += $quantity;
+            $cartProducts[$id] += $quantity;
         }
 
-        $request->session()->put('cart_product_data', $cartProductData);
+        $request->session()->put('cartProducts', $cartProducts);
 
         return back();
     }
 
     public function remove(string $id, Request $request): RedirectResponse
     {
-        $cartProductData = $request->session()->get('cart_product_data');
-        if ($cartProductData[$id] > 1) {
-            $cartProductData[$id] -= 1;
+        $cartProducts = $request->session()->get('cartProducts');
+        if ($cartProducts[$id] > 1) {
+            $cartProducts[$id] -= 1;
         } else {
-            unset($cartProductData[$id]);
+            unset($cartProducts[$id]);
         }
 
-        $request->session()->put('cart_product_data', $cartProductData);
+        $request->session()->put('cartProducts', $cartProducts);
 
         return back();
     }
@@ -71,7 +62,7 @@ class CartController extends Controller
     public function removeAll(Request $request): RedirectResponse
     {
 
-        $request->session()->forget('cart_product_data');
+        $request->session()->forget('cartProducts');
 
         return back();
     }

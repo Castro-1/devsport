@@ -13,7 +13,7 @@ Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->nam
 // Cart routes --------------------------------
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
-Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
+Route::delete('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
 
 // Admin routes -------------------------------

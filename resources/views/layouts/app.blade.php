@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <title>@yield('title', 'DevSport')</title>
 </head>
@@ -26,8 +27,8 @@
                     <a class="nav-link active" href="{{ route('product.index') }}">{{ __('layout.products') }}</a>
                     <a class="nav-link active" href="{{ route('cart.index') }}">
                         {{ __('layout.cart') }}
-                        @if (session('cart_product_data'))
-                            ({{ array_sum(session('cart_product_data')) }})
+                        @if (session('cartProducts'))
+                            ({{ array_sum(session('cartProducts')) }})
                         @else
                             (0)
                         @endif

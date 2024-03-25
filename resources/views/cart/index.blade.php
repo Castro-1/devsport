@@ -2,26 +2,53 @@
 @section('title', $viewData['title'])
 @section('subtitle', $viewData['subtitle'])
 @section('content')
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <ul>
-                    @foreach ($viewData['cartProducts'] as $key => $cartProduct)
-                    <li>
-                        Id: {{ $key }} -
-                        {{ __('products.label.name') }}: {{ $cartProduct['product']['name'] }} -
-                        {{ __('products.label.price') }}: {{ $cartProduct['product']['price'] }} -
-                        {{ __('products.label.quantity') }}: {{ $cartProduct['quantity'] }} -
-                        <a href="{{ route('cart.remove', ['id' => $key]) }}">{{ __('products.button.remove_from_cart') }}</a>
-                    </li>
-                    @endforeach
-                </ul>
-                @if ($viewData['cartProducts'])
-                    <p>{{ __('products.label.quantity') }}: {{ $viewData['totalCost'] }}</p>
-                    <a href="{{ route('cart.removeAll') }}">{{ __('products.button.remove_all_from_cart') }}</a>
-                @else
-                    <p>{{ __('products.cart.empty') }}</p>
-                @endif
-            </div>
-        </div>
-    </div>
+<div class="card"> 
+  <div class="card-header"> 
+    Products in Cart 
+  </div> 
+  <div class="card-body"> 
+    <table class="table table-bordered table-striped text-center"> 
+      <thead> 
+        <tr> 
+          <th scope="col">ID</th> 
+          <th scope="col">Name</th> 
+          <th scope="col">Price</th> 
+          <th scope="col">Quantity</th>
+          <th scope="col">Remove</th> 
+        </tr> 
+      </thead> 
+      <tbody> 
+        @foreach ($viewData["cartProducts"] as $cartProduct) 
+        <tr> 
+          <td>{{ $cartProduct->getId() }}</td> 
+          <td>{{ $cartProduct->getName() }}</td> 
+          <td>${{ $cartProduct->getPrice() }}</td> 
+          <td>{{ session('cartProducts')[$cartProduct->getId()] }}</td>
+          <td>
+            <form action="{{ route('cart.remove', $cartProduct->getId())}}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger">
+                <i class="bi-trash"></i>
+              </button>
+            </form>
+          </td> 
+        </tr>
+        @endforeach 
+      </tbody> 
+    </table>
+    <br> 
+    <div class="row"> 
+      <div class="text-end"> 
+        <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["totalCost"] }}</a> 
+        <a class="btn bg-primary text-white mb-2">Purchase</a> 
+        <a href="{{ route('cart.removeAll') }}"> 
+          <button class="btn btn-danger mb-2"> 
+            Remove all products from Cart 
+          </button> 
+        </a> 
+      </div> 
+    </div> 
+  </div> 
+</div> 
 @endsection
