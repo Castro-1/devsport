@@ -12,6 +12,10 @@ Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->nam
 
 // Cart routes --------------------------------
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+    Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders"); 
+});
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::delete('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
@@ -28,8 +32,5 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () {
 
 Auth::routes();
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
-// });
 
-Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+

@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Collection;
 
 class Product extends Model
 {
@@ -127,12 +130,12 @@ class Product extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function items(): Item
+    public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
 
-    public function getItems(): Item
+    public function getItems(): Collection
     {
         return $this->items;
     }

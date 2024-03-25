@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Collection;
+
 
 class Order extends Model
 {
@@ -64,7 +68,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getUser(): User
+    public function getUser(): Collection
     {
         return $this->user;
     }
@@ -74,12 +78,12 @@ class Order extends Model
         $this->user = $user;
     }
 
-    public function items(): Item
+    public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
 
-    public function getItems(): Item
+    public function getItems(): Collection
     {
         return $this->items;
     }

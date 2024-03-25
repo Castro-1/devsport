@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Trainingcontext extends Model
 {
@@ -19,6 +21,19 @@ class Trainingcontext extends Model
      * $this->attributes['objectives'] - json - contains the trainingcontext objectives
      * $this->attributes['specifications'] - string - contains the trainingcontext specifications
      */
+
+    protected $fillable = [
+        'time',
+        'place',
+        'frequency',
+        'level',
+        'objectives',
+        'specifications',
+    ];
+
+    protected $casts = [
+        'objectives' => 'array',
+    ];
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -79,20 +94,7 @@ class Trainingcontext extends Model
         return $this->attributes['specifications'];
     }
 
-    protected $fillable = [
-        'time',
-        'place',
-        'frequency',
-        'level',
-        'objectives',
-        'specifications',
-    ];
-
-    protected $casts = [
-        'objectives' => 'array',
-    ];
-
-    public function routines()
+    public function routines(): HasMany
     {
         return $this->hasMany(Routine::class);
     }

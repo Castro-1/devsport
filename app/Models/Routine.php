@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Routine extends Model
 {
@@ -15,6 +17,11 @@ class Routine extends Model
      * $this->attributes['type'] - string - contains the  routine type
      * $this->attributes['trainingcontext_id'] - int - contains the routine trainingcontext_id
      */
+
+    protected $fillable = [
+        'type',
+        'trainingcontext_id',
+    ];
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -40,17 +47,12 @@ class Routine extends Model
         $this->attributes['trainingcontext_id'] = $trainingcontext_id;
     }
 
-    protected $fillable = [
-        'type',
-        'trainingcontext_id',
-    ];
-
-    public function trainingcontext()
+    public function trainingcontext(): BelongTo
     {
         return $this->belongsTo(Trainingcontext::class);
     }
 
-    public function exercises()
+    public function exercises(): HasMany
     {
         return $this->hasMany(Exercise::class);
     }

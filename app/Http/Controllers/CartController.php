@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -69,7 +70,7 @@ class CartController extends Controller
 
     public function purchase(Request $request): View|RedirectResponse
     {
-        $productsInSession = $request->session()->get('products');
+        $productsInSession = $request->session()->get('cartProducts');
         if ($productsInSession) {
             $userId = Auth::user()->getId();
             $order = new Order();
@@ -96,7 +97,7 @@ class CartController extends Controller
             Auth::user()->setBalance($newBalance);
             Auth::user()->save();
 
-            $request->session()->forget('products');
+            $request->session()->forget('cartProducts');
 
             $viewData = [];
             $viewData['title'] = 'Purchase - Online Store';
@@ -105,7 +106,7 @@ class CartController extends Controller
 
             return view('cart.purchase')->with('viewData', $viewData);
         } else {
-            return redirect()->route('cart.index');
+            return redirect()->route('login');
         }
     }
 }

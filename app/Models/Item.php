@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Collection;
 
 class Item extends Model
 {
@@ -85,12 +88,12 @@ class Item extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function order(): Order
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
 
-    public function getOrder(): Order
+    public function getOrder(): Collection
     {
         return $this->order;
     }
@@ -100,7 +103,7 @@ class Item extends Model
         $this->order = $order;
     }
 
-    public function product(): Product
+    public function product():  BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
