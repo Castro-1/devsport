@@ -30,6 +30,14 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () {
     Route::put('/admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
 });
 
+// User routes -------------------------------
+Route::get('/trainingcontext', 'App\Http\Controllers\TrainingcontextController@index')->name('trainingcontext.index');
+Route::get('/trainingcontext/create', 'App\Http\Controllers\TrainingcontextController@create')->name('trainingcontext.create');
+Route::post('/trainingcontext/save', 'App\Http\Controllers\TrainingcontextController@save')->name('trainingcontext.save');  
+Route::get('/trainingcontext/{trainingcontext}', 'App\Http\Controllers\TrainingcontextController@show')->name('trainingcontext.show');
+ 
+
+
 Auth::routes();
 
 

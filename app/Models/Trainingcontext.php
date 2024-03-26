@@ -23,6 +23,7 @@ class Trainingcontext extends Model
      */
 
     protected $fillable = [
+        'users_id',
         'time',
         'place',
         'frequency',
@@ -34,9 +35,15 @@ class Trainingcontext extends Model
     protected $casts = [
         'objectives' => 'array',
     ];
+
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+    
+    public function getUsers_Id(): int
+    {
+        return $this->attributes['users_id'];
     }
 
     public function getTime(): int

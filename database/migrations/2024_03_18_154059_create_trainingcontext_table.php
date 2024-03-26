@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('trainingcontexts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('users_id')->constrained()->onDelete('cascade');
             $table->integer('time');
             $table->string('place');
             $table->integer('frequency');

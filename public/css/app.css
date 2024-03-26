@@ -8,7 +8,7 @@
 }
 
 .bg-primary {
-    background-color: #1abc9c !important;
+    background-color: #454546 !important;
 }
 
 nav {
@@ -41,3 +41,9 @@ nav {
   }
   
 >>>>>>> smcastril1/user-order
+
+.custom-navbar {
+  background-color: #454546; /* Color de fondo */
+  padding-top: 1rem; /* Espaciado superior */
+  padding-bottom: 1rem; /* Espaciado inferior */
+}
