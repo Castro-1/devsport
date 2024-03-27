@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('time');
             $table->string('place');
             $table->integer('frequency');
-            $table->integer('level');
             $table->json('objectives')->nullable();
             $table->string('specifications');
             $table->timestamps();

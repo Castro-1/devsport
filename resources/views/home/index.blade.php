@@ -17,7 +17,7 @@
                                 <p class="card-text">{{ $viewData['lastProduct']->getDescription() }}</p>
                                 <p class="card-text">${{ $viewData['lastProduct']->getPrice() }}</p>
                                 <a href="{{ route('product.show', ['id' => $viewData['lastProduct']->getId()]) }}"
-                                    class="btn bg-primary text-white">{{ __('products.button.details') }}</a>
+                                    class="btn btn-outline-secondary mb-2">{{ __('products.button.details') }}</a>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                 <p>{{ $product->getName() }}</p>
                                 <p>${{ $product->getPrice() }}</p>
                                 <a href="{{ route('cart.add', ['id' => $product->getId()]) }}"
-                                    class="btn bg-primary text-white">{{ __('products.button.add_to_cart') }}</a>
+                                    class="btn btn-outline-secondary mb-2">{{ __('products.button.add_to_cart') }}</a>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,7 @@
 @section('content')
 <div class="card"> 
   <div class="card-header"> 
-    {{ __('cart.products_in_cart') }}
+    {{ __('products in cart') }}
   </div> 
   <div class="card-body"> 
     <table class="table table-bordered table-striped text-center"> 
@@ -42,7 +42,7 @@
       <div class="text-end"> 
         <a class="btn btn-outline-secondary mb-2"><b>{{ __('products.label.total') }}:</b> ${{ $viewData["totalCost"] }}</a> 
         @if (count($viewData["cartProducts"]) > 0) 
-        <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">{{ __('products.button.purchase') }}</a> 
+        <a href="{{ route('cart.purchase') }}" class="btn btn-outline-secondary mb-2">{{ __('products.button.purchase') }}</a> 
         <a href="{{ route('cart.removeAll') }}"> 
           <button class="btn btn-danger mb-2"> 
             {{ __('products.button.remove_all_from_cart') }}  

@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('routines_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('musclegroup');
             $table->binary('image')->nullable();

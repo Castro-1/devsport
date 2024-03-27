@@ -35,7 +35,9 @@ Route::get('/trainingcontext', 'App\Http\Controllers\TrainingcontextController@i
 Route::get('/trainingcontext/create', 'App\Http\Controllers\TrainingcontextController@create')->name('trainingcontext.create');
 Route::post('/trainingcontext/save', 'App\Http\Controllers\TrainingcontextController@save')->name('trainingcontext.save');  
 Route::get('/trainingcontext/{trainingcontext}', 'App\Http\Controllers\TrainingcontextController@show')->name('trainingcontext.show');
- 
+Route::get('/routines/{trainingcontext_id}', 'App\Http\Controllers\RoutineController@index')->name('routines.index');
+Route::get('/execise', 'App\Http\Controllers\ExerciseController@index')->name('exercise.index');
+Route::get('/execise/{id}', 'App\Http\Controllers\ExerciseController@show')->name('exercise.show');
 
 
 Auth::routes();

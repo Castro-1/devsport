@@ -17,7 +17,6 @@ class Trainingcontext extends Model
      * $this->attributes['time'] - int - contains the trainingcontext time
      * $this->attributes['place'] - string - contains the trainingcontext place
      * $this->attributes['frequency'] - int - contains the trainingcontext frequency
-     * $this->attributes['level'] - int - contains the trainingcontext level
      * $this->attributes['objectives'] - json - contains the trainingcontext objectives
      * $this->attributes['specifications'] - string - contains the trainingcontext specifications
      */
@@ -27,7 +26,6 @@ class Trainingcontext extends Model
         'time',
         'place',
         'frequency',
-        'level',
         'objectives',
         'specifications',
     ];
@@ -74,16 +72,6 @@ class Trainingcontext extends Model
     public function setFrequency(int $frequency): void
     {
         $this->attributes['frequency'] = $frequency;
-    }
-
-    public function getLevel(): int
-    {
-        return $this->attributes['level'];
-    }
-
-    public function setLevel(int $level): void
-    {
-        $this->attributes['level'] = $level;
     }
 
     public function getObjectives(): array

@@ -15,12 +15,13 @@ class Routine extends Model
      * ROUTINE ATTRIBUTES
      * $this->attributes['id'] - int - contains the routine primary key (id)
      * $this->attributes['type'] - string - contains the  routine type
-     * $this->attributes['trainingcontext_id'] - int - contains the routine trainingcontext_id
+     * $this->attributes['trainingcontexts_id'] - int - contains the routine trainingcontexts_id
      */
 
     protected $fillable = [
         'type',
-        'trainingcontext_id',
+        'trainingcontexts_id',
+        'exercises_id',
     ];
     public function getId(): int
     {
@@ -37,9 +38,9 @@ class Routine extends Model
         $this->attributes['type'] = $type;
     }
 
-    public function getTrainingcontextId(): int
+    public function getTrainingcontextsId(): int
     {
-        return $this->attributes['trainingcontext_id'];
+        return $this->attributes['trainingcontexts_id'];
     }
 
     public function setTrainingcontextId(int $trainingcontext_id): void
@@ -52,8 +53,13 @@ class Routine extends Model
         return $this->belongsTo(Trainingcontext::class);
     }
 
-    public function exercises(): HasMany
+    public function getExercisesId(): int
     {
-        return $this->hasMany(Exercise::class);
+        return $this->attributes['exercises_id'];
+    }
+
+    public function setExercisesId(int $exercises_id): void
+    {
+        $this->attributes['exercises_id'] = $exercises_id;
     }
 }

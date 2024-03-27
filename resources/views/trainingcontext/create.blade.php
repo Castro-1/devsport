@@ -14,34 +14,36 @@
               @endforeach
             </ul>
             @endif  
-            <form method="POST" action="{{ route('trainingcontext.save') }}" >
+            <form class="form-row row" method="POST" action="{{ route('trainingcontext.save') }}" >
                 @csrf
-                <div>
+                <div class="form-group col-md-6">
                     <label for="time">Time:</label>
-                    <input type="text" id="time" name="time">
+                    <br>
+                    <input class="form-control"  type="text" id="time" name="time">
                 </div>
-                <div>
+                <div class="form-group col-md-6">
                     <label for="place">Place:</label>
-                    <input type="text" id="place" name="place">
+                    <br>
+                    <input class="form-control" type="text" id="place" name="place">
                 </div>
-                <div>
+                <div class="form-group col-md-6">
                     <label for="frequency">Frequency:</label>
-                    <input type="text" id="frequency" name="frequency">
+                    <br>
+                    <input class="form-control" type="text" id="frequency" name="frequency">
                 </div>
-                <div>
-                    <label for="level">Level:</label>
-                    <input type="text" id="level" name="level">
-                </div>
-                <div>
+                <div class="form-group col-md-6">
                     <label for="objectives">Objectives:</label>
-                    <textarea id="objectives" name="objectives"></textarea>
+                    <br>
+                    <textarea class="form-control" id="objectives" name="objectives"></textarea>
                 </div>
-                <div>
+                <div class="form-group col-md-6">
                     <label for="specifications">Specifications:</label>
-                    <textarea id="specifications" name="specifications"></textarea>
+                    <br>
+                    <textarea class="form-control" id="specifications" name="specifications"></textarea>
                 </div>
+                <br>
                 <div>
-                    <button type="submit">Submit</button>
+                    <button class="btn btn-outline-secondary mb-2" type="submit">Submit</button>
                 </div>
             </form>
             </div>

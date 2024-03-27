@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> 
-    <link href="{{ asset('resources/css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     <title>@yield('title', 'DevSport')</title>
 </head>
 
@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4 custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.index') }}">
-                <img src="{{ asset('img/icon.png') }}" alt="Nombre Alternativo" style="width: 200px; height: auto;">
+                <img src="{{ asset('img/icon3.jpg') }}" alt="Nombre Alternativo" style="width: 80px; height: 80px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,13 +34,14 @@
                             (0)
                         @endif
                     </a>
+                    <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a> 
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
                         <a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
                         <a class="nav-link active" href="{{ route('register') }}">{{ __('Register') }}</a>
                     @else
-                        <a class="nav-link active" href="{{ route('trainingcontext.index') }}">Training Routine</a>
-                        <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a> 
+                        <a class="nav-link active" href="{{ route('trainingcontext.index') }}">Your training</a>
+                        <a class="nav-link active" href="{{ route('exercise.index') }}">exercises</a> 
                         <form id="logout" action="{{ route('logout') }}" method="POST">
                             <a role="button" class="nav-link active"
                                 onclick="document.getElementById('logout').submit();">Logout</a>

@@ -60,7 +60,7 @@
                                 <p>{{ $product->getName() }}</p>
                                 <p>${{ $product->getPrice() }}</p>
                                 <a href="{{ route('cart.add', ['id' => $product->getId()]) }}"
-                                    class="btn bg-primary text-white">{{ __('products.button.add_to_cart') }}</a>
+                                    class="btn btn-outline-secondary mb-2">{{ __('products.button.add_to_cart') }}</a>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
             @endif
             @if (!empty($viewData['searchPerformed']))
                 <a href="{{ route('product.index') }}"
-                    class="btn bg-primary text-white">{{ __('products.search.return') }}</a>
+                    class="btn btn-outline-secondary mb-2">{{ __('products.search.return') }}</a>
             @endif
         </div>
     </div>

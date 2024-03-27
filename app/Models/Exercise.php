@@ -18,7 +18,6 @@ class Exercise extends Model
      * $this->attributes['routines_id'] - int - contains the exercise routines_id
      * $this->attributes['name'] - string - contains the  exercise name
      * $this->attributes['musclegroup'] - string - contains the exercise musclegroup
-     * $this->attributes['image'] - string - contains the exercise image
      * $this->attributes['recommendations'] - string - contains the exercise recommendations
      * $this->attributes['repetitions'] - int - contains the exercise repetitions
      * $this->attributes['sets'] - int - contains the exercise sets
@@ -27,7 +26,6 @@ class Exercise extends Model
      protected $fillable = [
         'name',
         'musclegroup',
-        'image',
         'recommendations',
         'repetitions',
         'sets',
@@ -35,16 +33,6 @@ class Exercise extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function getRoutinesId(): int
-    {
-        return $this->attributes['routines_id'];
-    }
-
-    public function setRoutinesId(int $routines_id): void
-    {
-        $this->attributes['routines_id'] = $routines_id;
     }
 
     public function getName(): string
@@ -65,16 +53,6 @@ class Exercise extends Model
     public function setMusclegroup(string $musclegroup): void
     {
         $this->attributes['musclegroup'] = $musclegroup;
-    }
-
-    public function getImage(): string
-    {
-        return $this->attributes['image'];
-    }
-
-    public function setImage(string $image): void
-    {
-        $this->attributes['image'] = $image;
     }
 
     public function getRecommendations(): string

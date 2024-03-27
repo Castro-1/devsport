@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Trainingcontext;
+use App\Models\Routine;
 
 class TrainingcontextController extends Controller
 {
@@ -31,11 +32,10 @@ class TrainingcontextController extends Controller
             'time' => 'required|integer',
             'place' => 'required|string',
             'frequency' => 'required|integer',
-            'level' => 'required|integer',
             'objectives' => 'required|string',
             'specifications' => 'required|string',
         ]);
-        Trainingcontext::create($request->only(["users_id", "time", "place", "frequency", "level", "objectives", "specifications"]));
+        Trainingcontext::create($request->only(["users_id", "time", "place", "frequency", "objectives", "specifications"]));
 
         return back();
 
@@ -43,7 +43,7 @@ class TrainingcontextController extends Controller
 
     public function show(Trainingcontext $trainingcontext)
     {
-        $routines = $trainingcontext->routines;
+        $routines = Routine::where('trainingcontexts_id', $trainingcontext->id)->get();
         return view('trainingcontext.show', compact('trainingcontext', 'routines'));
     }
 }
