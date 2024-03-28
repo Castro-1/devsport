@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CartController extends Controller

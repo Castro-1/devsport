@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Trainingcontext;
 use App\Models\Routine;
+use App\Models\Trainingcontext;
+use Illuminate\Http\Request;
 
 class TrainingcontextController extends Controller
 {
@@ -19,9 +19,9 @@ class TrainingcontextController extends Controller
     public function create(Request $request)
     {
         $viewData = []; //to be sent to the view
-        $viewData["title"] = "Create trainingcontext";
+        $viewData['title'] = 'Create trainingcontext';
 
-        return view('trainingcontext.create')->with("viewData",$viewData);
+        return view('trainingcontext.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): \Illuminate\Http\RedirectResponse
@@ -35,7 +35,7 @@ class TrainingcontextController extends Controller
             'objectives' => 'required|string',
             'specifications' => 'required|string',
         ]);
-        Trainingcontext::create($request->only(["users_id", "time", "place", "frequency", "objectives", "specifications"]));
+        Trainingcontext::create($request->only(['users_id', 'time', 'place', 'frequency', 'objectives', 'specifications']));
 
         return back();
 
@@ -44,6 +44,7 @@ class TrainingcontextController extends Controller
     public function show(Trainingcontext $trainingcontext)
     {
         $routines = Routine::where('trainingcontexts_id', $trainingcontext->id)->get();
+
         return view('trainingcontext.show', compact('trainingcontext', 'routines'));
     }
 }

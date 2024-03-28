@@ -4,9 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
 
 class Exercise extends Model
 {
@@ -22,14 +19,14 @@ class Exercise extends Model
      * $this->attributes['repetitions'] - int - contains the exercise repetitions
      * $this->attributes['sets'] - int - contains the exercise sets
      */
-
-     protected $fillable = [
+    protected $fillable = [
         'name',
         'musclegroup',
         'recommendations',
         'repetitions',
         'sets',
     ];
+
     public function getId(): int
     {
         return $this->attributes['id'];

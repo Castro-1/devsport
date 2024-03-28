@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Item;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -10,12 +11,15 @@ class HomeController extends Controller
     public function index(): View
     {
         $products = Product::all();
+        $items = new Item();
         $lastProduct = $products->last();
+        $bestSellers = $items->getBestSellers();
 
         $viewData = [];
 
         $viewData['products'] = $products;
         $viewData['lastProduct'] = $lastProduct;
+        $viewData['bestSellers'] = $bestSellers;
         $viewData['title'] = __('Home Page');
         $viewData['subtitle'] = 'DevSport';
 

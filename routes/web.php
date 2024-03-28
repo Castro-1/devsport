@@ -14,7 +14,7 @@ Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->nam
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
-    Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders"); 
+    Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name('myaccount.orders');
 });
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::delete('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
@@ -33,14 +33,10 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () {
 // User routes -------------------------------
 Route::get('/trainingcontext', 'App\Http\Controllers\TrainingcontextController@index')->name('trainingcontext.index');
 Route::get('/trainingcontext/create', 'App\Http\Controllers\TrainingcontextController@create')->name('trainingcontext.create');
-Route::post('/trainingcontext/save', 'App\Http\Controllers\TrainingcontextController@save')->name('trainingcontext.save');  
+Route::post('/trainingcontext/save', 'App\Http\Controllers\TrainingcontextController@save')->name('trainingcontext.save');
 Route::get('/trainingcontext/{trainingcontext}', 'App\Http\Controllers\TrainingcontextController@show')->name('trainingcontext.show');
 Route::get('/routines/{trainingcontext_id}', 'App\Http\Controllers\RoutineController@index')->name('routines.index');
 Route::get('/execise', 'App\Http\Controllers\ExerciseController@index')->name('exercise.index');
 Route::get('/execise/{id}', 'App\Http\Controllers\ExerciseController@show')->name('exercise.show');
 
-
 Auth::routes();
-
-
-

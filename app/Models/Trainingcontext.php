@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Trainingcontext extends Model
 {
@@ -20,7 +19,6 @@ class Trainingcontext extends Model
      * $this->attributes['objectives'] - json - contains the trainingcontext objectives
      * $this->attributes['specifications'] - string - contains the trainingcontext specifications
      */
-
     protected $fillable = [
         'users_id',
         'time',
@@ -38,7 +36,7 @@ class Trainingcontext extends Model
     {
         return $this->attributes['id'];
     }
-    
+
     public function getUsers_Id(): int
     {
         return $this->attributes['users_id'];

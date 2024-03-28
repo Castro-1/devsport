@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Routine extends Model
 {
@@ -17,12 +15,12 @@ class Routine extends Model
      * $this->attributes['type'] - string - contains the  routine type
      * $this->attributes['trainingcontexts_id'] - int - contains the routine trainingcontexts_id
      */
-
     protected $fillable = [
         'type',
         'trainingcontexts_id',
         'exercises_id',
     ];
+
     public function getId(): int
     {
         return $this->attributes['id'];

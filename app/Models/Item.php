@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
@@ -38,6 +38,7 @@ class Item extends Model
         return $this->attributes['id'];
     }
 
+
     public function getQuantity(): int
     {
         return $this->attributes['quantity'];
@@ -47,6 +48,7 @@ class Item extends Model
     {
         $this->attributes['quantity'] = $quantity;
     }
+
 
     public function getPrice(): int
     {
@@ -103,7 +105,7 @@ class Item extends Model
         $this->order = $order;
     }
 
-    public function product():  BelongsTo
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
@@ -116,5 +118,16 @@ class Item extends Model
     public function setProduct(Product $product): void
     {
         $this->product = $product;
+    }
+
+    public function getBestSellers(): Collection
+    {
+        $bestSellers = self::select('product_id', DB::raw('SUM(quantity) as total_sold'))
+            ->groupBy('product_id')
+            ->orderByDesc('total_sold')
+            ->limit(5)
+            ->get();
+
+        return $bestSellers;
     }
 }

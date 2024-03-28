@@ -1,24 +1,58 @@
-.copyright {
-    background-color: #1a252f;
+:root {
+  --primary-color: #d42a2a;
+  --secundary-color:#262626;
+  --tertiary-color:#1a252f;
 }
+
+/* LAYOUT APP --------------------------------------------------------------------- */
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.bg-secondary {
+  background-color: var(--secundary-color) !important;
+}
+
+.footer {
+  background-color:var(--secundary-color);
+}
+
+.footer .menu-footer {
+  display: grid;
+  padding: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  justify-items: center;
+}
+
+.menu-footer ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+.menu-footer :hover {
+  text-decoration: none;
+}
+
 
 .bg-primary {
-    background-color: #454546 !important;
+  background-color: var(--primary-color) !important;
 }
 
-nav {
-    font-weight: 700;
+nav{
+  font-weight: 700;
 }
 
-.img-card {
-    height: 18vw;
-    object-fit: cover;
-}
-  
-.custom-navbar {
-  background-color: #454546 !important; /* Color de fondo */
-  padding-top: 1rem; /* Espaciado superior */
-  padding-bottom: 1rem; /* Espaciado inferior */
+.img-card{
+  height: 18vw;
+  object-fit: cover;
 }
 
 .form-trainingcontext {
@@ -34,7 +68,10 @@ nav {
 }
 
 .card-header-trainingcontext{
-  background-color: #454546;
+  background-color: var(--secundary-color);
   color: white;
 }
+
+
+
 
