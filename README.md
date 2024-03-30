@@ -99,7 +99,6 @@ DB_PASSWORD=
 
    ```
    php artisan migrate
-   php artisan db:seed --class=ExerciseSeeder
    ```
 
    This command will create the necessary tables in your local database based on the migrations defined in the project.
@@ -108,6 +107,7 @@ DB_PASSWORD=
 
    ```
    php artisan db:seed
+   php artisan db:seed --class=ExerciseSeeder
    ```
 
    This will populate the database with sample data defined in the seeders.
