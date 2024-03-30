@@ -79,6 +79,7 @@ class AdminProductController extends Controller
         $product->setName($request->input('name'));
         $product->setDescription($request->input('description'));
         $product->setPrice($request->input('price'));
+        $product->setVisibility($request->input('visible'));
 
         $product->save();
 

@@ -69,6 +69,19 @@
         <textarea class="form-control" name="description"
           rows="3">{{ $viewData['product']->getDescription() }}</textarea>
       </div>
+
+      <div class="row">
+        <label class="col-lg-3 col-md-3 col-sm-10">Visibility:</label>
+        <div class="col-lg-9 col-md-6 col-sm-12">
+          <select class="form-control" name="visible">
+            <option value="1" {{ $viewData['product']->getVisibility() ? 'selected' : '' }}>Visible</option>
+            <option value="0" {{ !$viewData['product']->getVisibility() ? 'selected' : '' }}>Hidden</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+          &nbsp;
+      </div>
       <button type="submit" class="btn btn-primary">Edit</button>
     </form>
   </div>

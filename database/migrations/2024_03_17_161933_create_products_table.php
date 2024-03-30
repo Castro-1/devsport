@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->integer('price');
             $table->integer('stock');
+            $table->boolean('visible')->default(true);
             $table->timestamps();
         });
     }

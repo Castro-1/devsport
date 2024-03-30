@@ -23,6 +23,7 @@ class Product extends Model
      * $this->attributes['created_at'] - timestamp - contains the product's creation date
      * $this->attributes['updated_at'] - timestamp - contains the product's update date
      * $this->items - Item[] - contains the associated items
+     * $this->attributes['visible'] - bool - indicate if the product whether is visible in the product list
      */
     protected $fillable = [
         'name',
@@ -143,4 +144,16 @@ class Product extends Model
     {
         $this->items = $items;
     }
+
+    public function getVisibility(): bool
+    {
+        return $this->attributes['visible'];
+    }
+
+    public function setVisibility(bool $visible): void
+    {
+        $this->attributes['visible'] = $visible;
+    }
+
+
 }
