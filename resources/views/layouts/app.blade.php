@@ -44,8 +44,8 @@
                         <a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
                         <a class="nav-link active" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @else
-                        <a class="nav-link active" href="{{ route('trainingcontext.index') }}">Your training</a>
-                        <a class="nav-link active" href="{{ route('exercise.index') }}">Exercises</a> 
+                        <a class="nav-link active" href="{{ route('trainingcontext.index') }}">My Training</a>
+                        <!-- <a class="nav-link active" href="{{ route('exercise.index') }}">Exercises</a>  -->
                         <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
                         <form id="logout" action="{{ route('logout') }}" method="POST">
                             <a role="button" class="nav-link active"

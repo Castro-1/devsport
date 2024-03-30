@@ -1,5 +1,6 @@
 :root {
-  --primary-color: #d42a2a;
+  --primary-color: rgba(255, 255, 0, 0.4);
+  --primary-opacity: rgba(38, 38, 38, 0.4);
   --secundary-color:#262626;
   --tertiary-color:#1a252f;
 }
@@ -50,6 +51,11 @@ nav{
   font-weight: 700;
 }
 
+header > div > h2 {
+  color: black;
+  font-weight: 700;
+}
+
 .img-card{
   height: 18vw;
   object-fit: cover;
@@ -69,7 +75,7 @@ nav{
 
 .card-header-trainingcontext{
   background-color: var(--secundary-color);
-  color: white;
+  color: black;
 }
 
 

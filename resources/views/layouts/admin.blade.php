@@ -21,7 +21,8 @@
       <hr /> 
       <ul class="nav flex-column"> 
         <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">{{ __('Admin - Home') }}</a></li> 
-        <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{ __('Admin - Products') }}</a></li> 
+        <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{ __('Admin - Products') }}</a></li>
+        <li><a href="{{ route('admin.exercise.index') }}" class="nav-link text-white">{{ __('Admin - Exercises') }}</a></li> 
         <li> 
           <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">{{ __('Go back to the home page') }}</a> 
         </li> 

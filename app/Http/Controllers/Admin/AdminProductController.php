@@ -10,11 +10,31 @@ use Illuminate\View\View;
 
 class AdminProductController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
+        $searchTerm = $request->get('search');
+        $category = $request->get('category');
+
         $viewData = [];
+
+        $products = Product::query();
+
+        if ($searchTerm) {
+            $products->where(function ($query) use ($searchTerm) {
+                $query->where('name', 'like', '%'.$searchTerm.'%')
+                    ->orWhere('description', 'like', '%'.$searchTerm.'%');
+            });
+            $viewData['searchPerformed'] = true;
+        }
+
+        if ($category) {
+            $products->where('category', $category);
+        }
+
+
         $viewData['title'] = 'Admin Page - Products - Online Store';
-        $viewData['products'] = Product::all();
+        $viewData['categories'] = Product::select('category')->distinct()->get();
+        $viewData['products'] = $products->get();
 
         return view('admin.product.index')->with('viewData', $viewData);
     }

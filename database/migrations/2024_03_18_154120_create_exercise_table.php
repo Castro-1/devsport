@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('musclegroup');
             $table->binary('image')->nullable();
-            $table->string('recommendations');
-            $table->string('repetitions');
-            $table->string('sets');
+            $table->string('recommendations')->nullable();
+            $table->string('repetitions')->nullable();
+            $table->string('sets')->nullable();
             $table->timestamps();
         });
     }

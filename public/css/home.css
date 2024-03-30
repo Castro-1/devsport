@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #d42a2a;
-    --primary-opacity: rgba(212, 42, 42, 0.4);
+    --primary-color: rgba(255, 255, 0, 0.3);
+    --primary-no-opacity: rgb(255, 255, 0, 0.8);
     --secundary-color:#262626;
     --tertiary-color:#1a252f;
   }
@@ -26,11 +26,11 @@
   .banner > .content-banner > a {
     width: 100%;
     margin: 1rem;
-    color: fff;
+    color: black;
     text-align: center;
     font-size: 1rem;
     font-weight: 1000;
-    background-color: var(--primary-color);
+    background-color: var(--primary-no-opacity);
     padding: 10%;
     text-transform: uppercase;
     border-radius: 5rem;
@@ -39,7 +39,7 @@
     content: "";
     width: 1.5rem;
     height: 1px;
-    background-color: var(--secundary-color);
+    background-color: #fff;
     position: absolute;
     bottom: -3px;
     left: 50%;
@@ -48,7 +48,7 @@
     transition: all 0.3s ease;
   }
   .banner > .content-banner > a:hover {
-    color: var(--secundary-color);
+    color: #fff;
   }
 
   main > .container-features {
@@ -62,7 +62,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: var(--primary-opacity);
+    background-color: rgba(255, 255, 0, 0.15);
     border-radius: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -163,7 +163,7 @@
   }
 
   main .categories > .container-categories > .card-category p:hover {
-    color:var(--primary-color);
+    color:var(--primary-no-opacity);
   }
 
 
@@ -190,6 +190,5 @@
   }
   main > .top-products .container-options span:hover {
     background-color: var(--primary-color);
-    color: #fff;
   }
   

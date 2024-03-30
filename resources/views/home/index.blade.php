@@ -4,7 +4,7 @@
 
         <section class="banner">
 			<div class="content-banner">
-				<a href="">Buy now</a>
+				<a href="">Products</a>
             	<a href="">Routine</a>
 			</div>
 		</section>
@@ -71,24 +71,24 @@
                 <div class="container mt-4">
                     <div class="row">
                         <div class="col-12">
+                        @if($viewData['lastProduct'])
                             <h3 class="mb-3">{{ __('products.title.new') }}</h3>
                             <div class="card mb-3">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="https://laravel.com/img/logotype.min.svg" class="card-img"
-                                            alt="{{ $viewData['lastProduct']->getName() }}">
+                                        <img src="https://laravel.com/img/logotype.min.svg" class="card-img" alt="{{ $viewData['lastProduct']->getName() }}">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $viewData['lastProduct']->getName() }}</h5>
                                             <p class="card-text">{{ $viewData['lastProduct']->getDescription() }}</p>
                                             <p class="card-text">${{ $viewData['lastProduct']->getPrice() }}</p>
-                                            <a href="{{ route('product.show', ['id' => $viewData['lastProduct']->getId()]) }}"
-                                                class="btn btn-outline-secondary mb-2">{{ __('products.button.details') }}</a>
+                                            <a href="{{ route('product.show', ['id' => $viewData['lastProduct']->getId()]) }}" class="btn btn-outline-secondary mb-2">{{ __('products.button.details') }}</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endif
                         </div>
                     </div>
 

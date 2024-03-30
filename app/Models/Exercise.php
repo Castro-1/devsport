@@ -27,6 +27,14 @@ class Exercise extends Model
         'sets',
     ];
 
+    public static function validate($request): void
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'musclegroup' => 'required',
+        ]);
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -75,6 +83,16 @@ class Exercise extends Model
     public function getSets(): int
     {
         return $this->attributes['sets'];
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->attributes['image'] = $image;
+    }
+
+    public function getImage(): string
+    {
+        return $this->attributes['image'];
     }
 
     public function setSets(int $sets): void
