@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Interfaces\ImageStorage;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
@@ -10,6 +11,13 @@ use Illuminate\View\View;
 
 class AdminProductController extends Controller
 {
+    protected $imageStorage;
+
+    public function __construct(ImageStorage $imageStorage)
+    {
+        $this->imageStorage = $imageStorage;
+    }
+
     public function index(Request $request): View
     {
         $searchTerm = $request->get('search');
@@ -49,7 +57,14 @@ class AdminProductController extends Controller
         $newProduct->setCategory($request->input('category'));
         $newProduct->setPrice($request->input('price'));
         $newProduct->setStock($request->input('stock'));
-        $newProduct->setImage('game.png');
+        $path = $this->imageStorage->store($request);
+
+        if (!empty($path)) {
+            $newProduct->setImage('storage/' . $path);
+        } else {
+            $newProduct->setImage('https://laravel.com/img/logotype.min.svg');
+        }
+
         $newProduct->save();
 
         return back();
@@ -80,6 +95,14 @@ class AdminProductController extends Controller
         $product->setDescription($request->input('description'));
         $product->setPrice($request->input('price'));
         $product->setVisibility($request->input('visible'));
+
+        $path = $this->imageStorage->store($request);
+
+        if (!empty($path)) {
+            $product->setImage('storage/' . $path);
+        } else {
+            $product->setImage('https://laravel.com/img/logotype.min.svg');
+        }
 
         $product->save();
 

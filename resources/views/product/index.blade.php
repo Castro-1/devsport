@@ -51,11 +51,11 @@
                 <p>{{ __('products.search.not_found') }}</p>
             @else
                 @foreach ($viewData['products'] as $product)
-                    @if ($product->getVisibility()==1)
+                    @if ($product->getVisibility() == 1)
                         <div class="col-md-4 col-lg-3 mb-2">
                             <div class="card text-black">
                                 <a href="{{ route('product.show', ['id' => $product->getId()]) }}">
-                                    <img src="https://laravel.com/img/logotype.min.svg" class="card-img-top img-card">
+                                    <img src="{{ URL::asset($product->getImage()) }}" class="card-img-top img-card">
                                 </a>
                                 <div class="card-body text-center">
                                     <p>{{ $product->getName() }}</p>

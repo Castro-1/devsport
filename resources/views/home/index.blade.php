@@ -76,7 +76,7 @@
                             <div class="card mb-3">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="https://laravel.com/img/logotype.min.svg" class="card-img" alt="{{ $viewData['lastProduct']->getName() }}">
+                                        <img src={{ URL::asset($viewData['lastProduct']->getImage()) }} class="card-img" alt="{{ $viewData['lastProduct']->getName() }}">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
