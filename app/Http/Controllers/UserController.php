@@ -13,12 +13,6 @@ class UserController extends Controller
     public function update(Request $request): RedirectResponse
     {
         $id = $request->user()->id;
-        $request->validate([
-            'age' => 'required|integer',
-            'weight' => 'required|numeric',
-            'height' => 'required|numeric',
-            'gender' => 'required|in:male,female,other',
-        ]);
 
         $user = User::findOrFail($id);
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('time');
             $table->string('place');
             $table->integer('frequency');
-            $table->json('objectives')->nullable();
+            $table->string('objectives')->nullable();
             $table->string('specifications');
             $table->timestamps();
         });

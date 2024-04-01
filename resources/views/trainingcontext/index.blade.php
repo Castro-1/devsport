@@ -4,7 +4,7 @@
 
 @section('content')
     <h1>{{ __('trainingcontext.training_contexts') }}</h1>
-    @if (is_null($viewData['user']->age))
+    @if (is_null($viewData['user']->getAge()))
         <p>{{ __('trainingcontext.update_profile_message') }}</p>
         <form class="form-row row" action="{{ route('user.update', $viewData) }}" method="post">
             @csrf
@@ -38,7 +38,7 @@
                     <div class="mb-3">
                         <div class="card">
                             <div class="card-body d-flex justify-content-between">
-                                <h5 class="card-title">{{ $trainingcontext->name }}</h5>
+                                <h5 class="card-title">{{ $trainingcontext->getName() }}</h5>
                                 <a href="{{ route('trainingcontext.show', $trainingcontext) }}" class="btn btn-outline-secondary">{{ __('trainingcontext.view_details_button') }}</a>
                             </div>
                         </div>

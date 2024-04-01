@@ -19,8 +19,8 @@
                 <tbody>
                     @foreach ($viewData['exercises'] as $exercise)
                         <tr>
-                            <td>{{ $exercise->name }}</td>
-                            <td>{{ $exercise->description }}</td>
+                            <td>{{ $exercise->getName() }}</td>
+                            <td>{{ $exercise->getDescription() }}</td>
                             <td>
                                 <a href="{{ route('exercise.show', $exercise->id) }}" class="btn btn-outline-secondary mb-2">{{ __('exercise.view') }}</a>
                             </td>
@@ -50,8 +50,8 @@
                 <tbody>
                     @foreach ($viewData['exercises'] as $exercise)
                         <tr>
-                            <td>{{ $exercise->name }}</td>
-                            <td>{{ $exercise->description }}</td>
+                            <td>{{ $exercise->getName() }}</td>
+                            <td>{{ $exercise->getDescription() }}</td>
                             <td>
                                 <a href="{{ route('exercise.show', $exercise->id) }}" class="btn btn-outline-secondary mb-2">{{ __('exercise.view') }}</a>
                             </td>

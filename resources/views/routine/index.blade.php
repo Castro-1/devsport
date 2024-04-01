@@ -15,7 +15,7 @@
                     @endif
                     <ul>
                         @foreach ($viewData['routines'] as $routine)
-                            <li>{{ $routine->name }}</li>
+                            <li>{{ $routine->getName() }}</li>
                         @endforeach
                     </ul>
                 </div>

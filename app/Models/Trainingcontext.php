@@ -22,6 +22,8 @@ class Trainingcontext extends Model
      * $this->attributes['frequency'] - int - contains the trainingcontext frequency
      * $this->attributes['objectives'] - json - contains the trainingcontext objectives
      * $this->attributes['specifications'] - string - contains the trainingcontext specifications
+     * $this->attributes['created_at'] - timestamp - contains the trainingcontext creation date
+     * $this->attributes['updated_at'] - timestamp - contains the trainingcontext update date
      */
     protected $fillable = [
         'users_id',
@@ -37,6 +39,18 @@ class Trainingcontext extends Model
         'objectives' => 'array',
     ];
 
+    public static function validate($request): void
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'time' => 'required|numeric|gt:0',
+            'place' => 'required',
+            'frequency' => 'required|numeric|gt:0',
+            'objectives' => 'required',
+            'specifications' => 'required',
+        ]);
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -45,6 +59,11 @@ class Trainingcontext extends Model
     public function getUsers_Id(): int
     {
         return $this->attributes['users_id'];
+    }
+
+    public function setUsers_Id(int $users_id): void
+    {
+        $this->attributes['users_id'] = $users_id;
     }
 
     public function getName(): string
@@ -87,12 +106,12 @@ class Trainingcontext extends Model
         $this->attributes['frequency'] = $frequency;
     }
 
-    public function getObjectives(): array
+    public function getObjectives(): string
     {
         return $this->attributes['objectives'];
     }
 
-    public function setObjectives(array $objectives): void
+    public function setObjectives(string $objectives): void
     {
         $this->attributes['objectives'] = $objectives;
     }
@@ -102,8 +121,34 @@ class Trainingcontext extends Model
         return $this->attributes['specifications'];
     }
 
+    public function setSpecifications(string $specifications): void
+    {
+        $this->attributes['specifications'] = $specifications;
+    }
+
     public function routines(): HasMany
     {
         return $this->hasMany(Routine::class);
     }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($value): void
+    {
+        $this->attributes['created_at'] = $value;
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt($value): void
+    {
+        $this->attributes['updated_at'] = $value;
+    }
+
 }

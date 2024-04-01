@@ -37,16 +37,16 @@ class TrainingcontextController extends Controller
     public function save(Request $request): RedirectResponse
     {
         $user_id = $request->user()->id;
-        $request->merge(['users_id' => $user_id]);
-        $request->validate([
-            'name' => 'required|string',
-            'time' => 'required|integer',
-            'place' => 'required|string',
-            'frequency' => 'required|integer',
-            'objectives' => 'required|string',
-            'specifications' => 'required|string',
-        ]);
-        Trainingcontext::create($request->only(['users_id', 'name', 'time', 'place', 'frequency', 'objectives', 'specifications']));
+        $newTrainingcontext = new Trainingcontext();
+        $newTrainingcontext->setName($request->input('name'));
+        $newTrainingcontext->setTime($request->input('time'));
+        $newTrainingcontext->setPlace($request->input('place'));
+        $newTrainingcontext->setFrequency($request->input('frequency'));
+        $newTrainingcontext->setObjectives($request->input('objectives'));
+        $newTrainingcontext->setSpecifications($request->input('specifications'));
+        $newTrainingcontext->setUsers_Id($user_id);
+
+        $newTrainingcontext->save();
 
         return back();
     }

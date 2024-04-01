@@ -20,6 +20,8 @@ class Exercise extends Model
      * $this->attributes['recommendations'] - string - contains the exercise recommendations
      * $this->attributes['repetitions'] - int - contains the exercise repetitions
      * $this->attributes['sets'] - int - contains the exercise sets
+     * $this->attributes['created_at'] - timestamp - contains the exercise creation date
+     * $this->attributes['updated_at'] - timestamp - contains the exercise update date
      */
     protected $fillable = [
         'name',
@@ -106,4 +108,30 @@ class Exercise extends Model
     {
         return $this->belongsTo(Routine::class);
     }
+
+    public function getRoutine(): Routine
+    {
+        return $this->routine;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($value): void
+    {
+        $this->attributes['created_at'] = $value;
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt($value): void
+    {
+        $this->attributes['updated_at'] = $value;
+    }
+
 }

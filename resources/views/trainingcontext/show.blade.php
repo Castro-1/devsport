@@ -10,12 +10,12 @@
         <div class="card-body">
             <h5 class="card-title">{{ __('trainingcontext.information_title') }}</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>{{ __('trainingcontext.name') }}:</strong> {{ $viewData['trainingcontexts']->name }}</li>
-                <li class="list-group-item"><strong>{{ __('trainingcontext.time') }}:</strong> {{ $viewData['trainingcontexts']->time }}</li>
-                <li class="list-group-item"><strong>{{ __('trainingcontext.place') }}:</strong> {{ $viewData['trainingcontexts']->place }}</li>
-                <li class="list-group-item"><strong>{{ __('trainingcontext.frequency') }}:</strong> {{ $viewData['trainingcontexts']->frequency }}</li>
-                <li class="list-group-item"><strong>{{ __('trainingcontext.objectives') }}:</strong> {{ $viewData['trainingcontexts']->objectives }}</li>
-                <li class="list-group-item"><strong>{{ __('trainingcontext.specifications') }}:</strong> {{ $viewData['trainingcontexts']->specifications }}</li>
+                <li class="list-group-item"><strong>{{ __('trainingcontext.name') }}</strong> {{ $viewData['trainingcontexts']->getName() }}</li>
+                <li class="list-group-item"><strong>{{ __('trainingcontext.time') }}</strong> {{ $viewData['trainingcontexts']->getTime() }}</li>
+                <li class="list-group-item"><strong>{{ __('trainingcontext.place') }}</strong> {{ $viewData['trainingcontexts']->getPlace() }}</li>
+                <li class="list-group-item"><strong>{{ __('trainingcontext.frequency') }}</strong> {{ $viewData['trainingcontexts']->getFrequency() }}</li>
+                <li class="list-group-item"><strong>{{ __('trainingcontext.objectives') }}</strong> {{ $viewData['trainingcontexts']->getObjectives() }}</li>
+                <li class="list-group-item"><strong>{{ __('trainingcontext.specifications') }}</strong> {{ $viewData['trainingcontexts']->getSpecifications() }}</li>
             </ul>
         </div>
     </div>
