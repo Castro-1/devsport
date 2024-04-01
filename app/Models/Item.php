@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 
 class Item extends Model
 {
@@ -38,7 +38,6 @@ class Item extends Model
         return $this->attributes['id'];
     }
 
-
     public function getQuantity(): int
     {
         return $this->attributes['quantity'];
@@ -48,7 +47,6 @@ class Item extends Model
     {
         $this->attributes['quantity'] = $quantity;
     }
-
 
     public function getPrice(): int
     {

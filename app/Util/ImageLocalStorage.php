@@ -12,7 +12,7 @@ class ImageLocalStorage implements ImageStorage
     {
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $filename = time() . '_' . $file->getClientOriginalName();
+            $filename = time().'_'.$file->getClientOriginalName();
             Storage::disk('public')->put($filename, file_get_contents($file->getRealPath()));
 
             return $filename;

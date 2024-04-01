@@ -1,5 +1,7 @@
 <?php
 
+//Andrés Prda Rodríguez
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +15,8 @@ class Trainingcontext extends Model
     /**
      * TRAININGCONTEXT ATTRIBUTES
      * $this->attributes['id'] - int - contains the trainingcontext primary key (id)
+     * $this->attributes['users_id'] - int - contains the trainingcontext users_id
+     * $this->attributes['name'] - string - contains the trainingcontext name
      * $this->attributes['time'] - int - contains the trainingcontext time
      * $this->attributes['place'] - string - contains the trainingcontext place
      * $this->attributes['frequency'] - int - contains the trainingcontext frequency
@@ -21,6 +25,7 @@ class Trainingcontext extends Model
      */
     protected $fillable = [
         'users_id',
+        'name',
         'time',
         'place',
         'frequency',
@@ -40,6 +45,16 @@ class Trainingcontext extends Model
     public function getUsers_Id(): int
     {
         return $this->attributes['users_id'];
+    }
+
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName(string $name): void
+    {
+        $this->attributes['name'] = $name;
     }
 
     public function getTime(): int

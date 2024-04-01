@@ -1,15 +1,21 @@
 <?php
 
+//Andrés Prda Rodríguez
+
 namespace App\Http\Controllers;
 
 use App\Models\Routine;
+use Illuminate\View\View;
 
 class RoutineController extends Controller
 {
-    public function index($trainingcontext_id)
+    public function index($trainingcontext_id): View
     {
         $routines = Routine::where('trainingcontexts_id', $trainingcontext_id)->get();
 
-        return view('routine.index', compact('routines'));
+        $viewData = [];
+        $viewData['routines'] = $routines;
+
+        return view('routine.index')->with('viewData', $viewData);
     }
 }

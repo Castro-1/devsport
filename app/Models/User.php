@@ -45,6 +45,7 @@ class User extends Authenticatable
         'age',
         'weight',
         'height',
+        'gender',
     ];
 
     /**
@@ -148,5 +149,45 @@ class User extends Authenticatable
     public function setOrders(Order $orders): void
     {
         $this->orders = $orders;
+    }
+
+    public function getAge(): int
+    {
+        return $this->attributes['age'];
+    }
+
+    public function setAge(int $age): void
+    {
+        $this->attributes['age'] = $age;
+    }
+
+    public function getWeight(): int
+    {
+        return $this->attributes['weight'];
+    }
+
+    public function setWeight(int $weight): void
+    {
+        $this->attributes['weight'] = $weight;
+    }
+
+    public function getHeight(): int
+    {
+        return $this->attributes['height'];
+    }
+
+    public function setHeight(int $height): void
+    {
+        $this->attributes['height'] = $height;
+    }
+
+    public function getGender(): string
+    {
+        return $this->attributes['gender'];
+    }
+
+    public function setGender(string $gender): void
+    {
+        $this->attributes['gender'] = $gender;
     }
 }

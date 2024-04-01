@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Interfaces\ImageStorage;
 use App\Http\Controllers\Controller;
+use App\Interfaces\ImageStorage;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -39,7 +39,6 @@ class AdminProductController extends Controller
             $products->where('category', $category);
         }
 
-
         $viewData['title'] = 'Admin Page - Products - Online Store';
         $viewData['categories'] = Product::select('category')->distinct()->get();
         $viewData['products'] = $products->get();
@@ -59,8 +58,8 @@ class AdminProductController extends Controller
         $newProduct->setStock($request->input('stock'));
         $path = $this->imageStorage->store($request);
 
-        if (!empty($path)) {
-            $newProduct->setImage('storage/' . $path);
+        if (! empty($path)) {
+            $newProduct->setImage('storage/'.$path);
         } else {
             $newProduct->setImage('https://laravel.com/img/logotype.min.svg');
         }
@@ -98,8 +97,8 @@ class AdminProductController extends Controller
 
         $path = $this->imageStorage->store($request);
 
-        if (!empty($path)) {
-            $product->setImage('storage/' . $path);
+        if (! empty($path)) {
+            $product->setImage('storage/'.$path);
         } else {
             $product->setImage('https://laravel.com/img/logotype.min.svg');
         }

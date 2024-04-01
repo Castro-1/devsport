@@ -154,6 +154,4 @@ class Product extends Model
     {
         $this->attributes['visible'] = $visible;
     }
-
-
 }

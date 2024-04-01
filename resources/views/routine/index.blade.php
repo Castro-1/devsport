@@ -1,17 +1,20 @@
+{{-- Andrés Prada Rodriguez --}}
+
 @extends('layouts.app')
+
 @section('content')
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Routines') }}</div>
+                <div class="card-header">{{ __('routine.routines') }}</div>
                 <div class="card-body">
-                    @if ($routines->isEmpty())
-                        <p>{{ __('No routines found') }}</p>
+                    @if ($viewData['routines']->isEmpty())
+                        <p>{{ __('routine.no_routines_found') }}</p>
                     @endif
                     <ul>
-                        @foreach ($routines as $routine)
+                        @foreach ($viewData['routines'] as $routine)
                             <li>{{ $routine->name }}</li>
                         @endforeach
                     </ul>
@@ -21,3 +24,4 @@
     </div>
 </div>
 @endsection
+

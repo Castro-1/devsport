@@ -31,14 +31,12 @@ class AdminExerciseController extends Controller
             $exercises->where('musclegroup', $musclegroup);
         }
 
-
         $viewData['title'] = 'Admin Page - Exercises - Online Store';
         $viewData['musclegroup'] = Exercise::select('musclegroup')->distinct()->get();
         $viewData['exercises'] = $exercises->get();
 
         return view('admin.exercise.index')->with('viewData', $viewData);
     }
-
 
     public function store(Request $request): RedirectResponse
     {
@@ -58,7 +56,6 @@ class AdminExerciseController extends Controller
 
         return back();
     }
-
 
     public function delete($id): RedirectResponse
     {
@@ -86,10 +83,9 @@ class AdminExerciseController extends Controller
         $exercise->setSets($request->input('sets'));
         $exercise->setMuscleGroup($request->input('musclegroup'));
         $exercise->setRecommendations($request->input('recommendations'));
-        
+
         $exercise->save();
 
         return redirect()->route('admin.exercise.index');
     }
-
 }
