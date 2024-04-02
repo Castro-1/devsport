@@ -1,9 +1,11 @@
+<!-- Author: Sara María Castrillón Ríos -->
+
 @extends('layouts.admin')
-@section('title', $viewData["title"])
+@section('title', __('admin.create_product_title'))
 @section('content')
 <div class="card mb-4">
   <div class="card-header">
-    Create Products
+    {{ __('admin.create_product_title') }}
   </div>
   <div class="card-body">
     @if($errors->any())
@@ -19,23 +21,23 @@
       <div class="row">
         <div class="col">
           <div class="mb-3 row">
-            <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Name:</label>
-            <div class="col-lg-7 col-md-6 col-sm-12">
+            <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">{{ __('admin.name') }}:</label>
+            <div class="col-lg-8 col-md-6 col-sm-12">
               <input name="name" value="{{ old('name') }}" type="text" class="form-control">
             </div>
           </div>
         </div>
         <div class="col">
           <div class="mb-3 row">
-            <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Price:</label>
-            <div class="col-lg-7 col-md-6 col-sm-12">
+            <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">{{ __('admin.price') }}:</label>
+            <div class="col-lg-8 col-md-6 col-sm-12">
               <input name="price" value="{{ old('price') }}" type="number" class="form-control">
             </div>
           </div>
         </div>
         <div class="col">
           <div class="mb-3 row">
-            <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Stock:</label>
+            <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">{{ __('admin.stock') }}:</label>
             <div class="col-lg-7 col-md-6 col-sm-12">
               <input name="stock" value="{{ old('stock') }}" type="number" class="form-control">
             </div>
@@ -45,15 +47,15 @@
       <div class="row">
         <div class="col">
           <div class="mb-3 row">
-            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>
-            <div class="col-lg-10 col-md-6 col-sm-12">
+            <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">{{ __('admin.image') }}:</label>
+            <div class="col-lg-9 col-md-6 col-sm-12">
               <input class="form-control" type="file" name="image">
             </div>
           </div>
         </div>
         <div class="col">
           <div class="row">
-            <label class="col-lg-3 col-md-3 col-sm-10">Category:</label>
+            <label class="col-lg-3 col-md-3 col-sm-10">{{ __('admin.category') }}:</label>
             <div class="col-lg-9 col-md-6 col-sm-12">
               <input name="category" value="{{ old('category') }}" type="text" class="form-control">
             </div>
@@ -63,17 +65,17 @@
         </div>
       </div>
       <div class="mb-3">
-        <label class="form-label">Description</label>
+        <label class="form-label">{{ __('admin.description') }}</label>
         <textarea class="form-control" name="description" rows="3">{{ old('description') }}</textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>
     </form>
   </div>
 </div>
 
 <div class="card">
   <div class="card-header">
-    Manage Products
+    {{ __('admin.manage_products_title') }}
   </div>
   <div class="card-body">
 
@@ -110,10 +112,10 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Category</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
+          <th scope="col">{{ __('admin.name') }}</th>
+          <th scope="col">{{ __('admin.category') }}</th>
+          <th scope="col">{{ __('admin.edit') }}</th>
+          <th scope="col">{{ __('admin.delete') }}</th>
         </tr>
       </thead>
       <tbody>

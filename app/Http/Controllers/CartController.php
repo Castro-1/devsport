@@ -1,5 +1,10 @@
 <?php
 
+// Author: 
+// - Juan Esteba Castro
+// - Sara María Castrillón Ríos
+
+
 namespace App\Http\Controllers;
 
 use App\Models\Item;

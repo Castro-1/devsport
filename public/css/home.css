@@ -1,6 +1,12 @@
+/* Author: Sara María Castrillón Ríos */
+
 :root {
-    --primary-color: rgba(255, 255, 0, 0.3);
-    --primary-no-opacity: rgb(255, 255, 0, 0.8);
+    /* --primary-color: rgba(255, 255, 0, 0.3); */
+    --primary-color: rgba(212,42,42, 0.85);
+    --primary-opacity: rgba(38, 38, 38, 0.4);
+    --secundary-color:#262626;
+    --tertiary-color:#1a252f;
+    --primary-no-opacity: rgb(212,42,42, 0.85);
     --secundary-color:#262626;
     --tertiary-color:#1a252f;
   }
@@ -62,7 +68,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: rgba(255, 255, 0, 0.15);
+    background-color: rgba(212,42,42, 0.15);
     border-radius: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;

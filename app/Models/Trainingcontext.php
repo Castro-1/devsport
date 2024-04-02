@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Trainingcontext extends Model
 {
-    use HasFactory;
+    
 
     /**
      * TRAININGCONTEXT ATTRIBUTES
