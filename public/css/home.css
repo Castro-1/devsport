@@ -15,7 +15,7 @@
     display: flex;
     align-items: end;
     /* background-image: url("../../img/home.jpg"); */
-    background-image: url("../../img/storage.jpg");
+    background-image: url("../storage/home.jpg");
     height: 80vh;
     background-size: cover;
     background-position: center;
