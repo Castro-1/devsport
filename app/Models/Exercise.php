@@ -133,5 +133,4 @@ class Exercise extends Model
     {
         $this->attributes['updated_at'] = $value;
     }
-
 }

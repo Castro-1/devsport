@@ -1,4 +1,5 @@
 <?php
+
 // Author: Sara María Castrillón Ríos
 
 namespace App\Models;
@@ -152,7 +153,7 @@ class User extends Authenticatable
         $this->orders = $orders;
     }
 
-    public function getAge(): int|null
+    public function getAge(): ?int
     {
         return $this->attributes['age'];
     }

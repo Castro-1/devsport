@@ -13,7 +13,6 @@ return [
 
     'content' => 'Welcome to the Admin Panel, use the sidebar to navigate between the different options.',
 
-
     // Product
 
     'create_product_title' => 'Create Products',
@@ -33,7 +32,6 @@ return [
     'visible' => 'Visible',
     'hidden' => 'Hidden',
     'edit' => 'Edit',
-
 
     // Exercise
 

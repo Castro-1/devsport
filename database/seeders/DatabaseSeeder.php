@@ -1,10 +1,10 @@
 <?php
+
 // Author: Sara María Castrillón Ríos
 
 namespace Database\Seeders;
 
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

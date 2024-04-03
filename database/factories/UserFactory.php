@@ -1,4 +1,5 @@
 <?php
+
 // Author: Sara María Castrillón Ríos
 
 namespace Database\Factories;

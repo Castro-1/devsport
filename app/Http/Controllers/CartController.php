@@ -1,9 +1,8 @@
 <?php
 
-// Author: 
+// Author:
 // - Juan Esteba Castro
 // - Sara María Castrillón Ríos
-
 
 namespace App\Http\Controllers;
 
