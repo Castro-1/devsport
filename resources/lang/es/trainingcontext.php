@@ -3,6 +3,7 @@
 //Andrés Prada Rodríguez
 
 return [
+    'training_contexts' => 'Planes de entrenamiento',
     'update_profile_message' => 'Por favor, actualiza tu perfil para poder ver tus contextos de entrenamiento.',
     'age' => 'Edad',
     'weight' => 'Peso',

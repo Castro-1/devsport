@@ -3,7 +3,7 @@
 //Andrés Prada Rodríguez
 
 return [
-    'training_contexts' => 'Training Contexts',
+    'training_contexts' => 'Training Plans',
     'update_profile_message' => 'Please update your profile to view your training contexts.',
     'age' => 'Age',
     'weight' => 'Weight',
