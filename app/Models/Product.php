@@ -154,4 +154,30 @@ class Product extends Model
     {
         $this->attributes['visible'] = $visible;
     }
+
+    public function scopeSearch($query, $term)
+    {
+        if ($term) {
+            return $query->where(function ($query) use ($term) {
+                $query->where('name', 'like', "%{$term}%")
+                      ->orWhere('description', 'like', "%{$term}%");
+            });
+        }
+
+        return $query;
+    }
+
+    public function scopeCategory($query, $category)
+    {
+        if ($category) {
+            return $query->where('category', $category);
+        }
+
+        return $query;
+    }
+
+    public function scopeSortByPrice($query, $sort = 'asc')
+    {
+        return $query->orderBy('price', $sort);
+    }
 }

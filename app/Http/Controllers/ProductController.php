@@ -14,33 +14,13 @@ class ProductController extends Controller
     {
         $searchTerm = $request->get('search');
         $category = $request->get('category');
-        $sort = $request->get('sort');
+        $sort = $request->get('sort', 'asc');
 
         $viewData = [];
-
-        $products = Product::query();
-
-        if ($searchTerm) {
-            $products->where(function ($query) use ($searchTerm) {
-                $query->where('name', 'like', '%'.$searchTerm.'%')
-                    ->orWhere('description', 'like', '%'.$searchTerm.'%');
-            });
-            $viewData['searchPerformed'] = true;
-        }
-
-        if ($category) {
-            $products->where('category', $category);
-        }
-
-        if ($sort) {
-            $products->orderBy('price', $sort);
-        } else {
-            $products->orderBy('price', 'asc');
-        }
-
         $viewData['categories'] = Product::select('category')->distinct()->get();
-        $viewData += $this->getViewData(__('products.title.index'), __('products.subtitle.index'));
-        $viewData['products'] = $products->get();
+        $viewData['title'] = __('products.title.index');
+        $viewData['subtitle'] = __('products.subtitle.index');
+        $viewData['products'] = Product::search($searchTerm)->category($category)->sortByPrice($sort)->get();
 
         return view('product.index')->with('viewData', $viewData);
     }
@@ -59,13 +39,5 @@ class ProductController extends Controller
         $viewData['product'] = $product;
 
         return view('product.show')->with('viewData', $viewData);
-    }
-
-    private function getViewData(string $title, string $subtitle): array
-    {
-        return [
-            'title' => $title,
-            'subtitle' => $subtitle,
-        ];
     }
 }
