@@ -1,3 +1,7 @@
+<!-- Author: 
+    - Juan Esteban Castro
+    - Sara María Castrillón Ríos -->
+    
 <!doctype html>
 <html lang="en">
 

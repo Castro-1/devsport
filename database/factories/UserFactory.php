@@ -1,5 +1,7 @@
 <?php
 
+// Author: Sara María Castrillón Ríos
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;

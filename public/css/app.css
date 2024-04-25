@@ -1,5 +1,8 @@
+/* Author: Sara María Castrillón Ríos */
+
 :root {
-  --primary-color: rgba(255, 255, 0, 0.4);
+  /* --primary-color: rgba(255, 255, 0, 0.4); */
+  --primary-color: rgb(212,42,42);
   --primary-opacity: rgba(38, 38, 38, 0.4);
   --secundary-color:#262626;
   --tertiary-color:#1a252f;
@@ -52,7 +55,7 @@ nav{
 }
 
 header > div > h2 {
-  color: black;
+  color: #fff;
   font-weight: 700;
 }
 

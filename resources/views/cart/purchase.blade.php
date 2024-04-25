@@ -1,15 +1,16 @@
+<!-- Author: Sara María Castrillón Ríos -->
+
 @extends('layouts.app') 
-@section('title', $viewData["title"]) 
+@section('title', __('purchase.purchase_completed_title')) 
 @section('subtitle', $viewData["subtitle"]) 
 @section('content') 
 <div class="card"> 
   <div class="card-header"> 
-    Purchase Completed 
+    {{ __('purchase.purchase_completed_title') }} 
   </div> 
   <div class="card-body"> 
     <div class="alert alert-success" role="alert"> 
-      Congratulations, purchase completed. Order number is <b>#{{ $viewData["order"]->getId() }}
-    </b> 
+      {{ __('purchase.purchase_completed_message') }} <b>#{{ $viewData["order"]->getId() }}</b> 
     </div> 
   </div> 
 </div> 

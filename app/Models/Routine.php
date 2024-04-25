@@ -4,13 +4,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Routine extends Model
 {
-    use HasFactory;
-
     /**
      * ROUTINE ATTRIBUTES
      * $this->attributes['id'] - int - contains the routine primary key (id)

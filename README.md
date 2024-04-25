@@ -6,6 +6,18 @@
 
 DevSport is a PHP e-commerce application built using Laravel framework. Designed to provide an exceptional experience in the purchase of sporting goods. DevSport not only allows users to acquire high-quality products at low prices, but also innovates with the integration of a personalized coach based on artificial intelligence.
 
+## Definitive verbal model
+we are developing a sports store with functionality to create routines from the propmts to an AI, where there will be two types of users, the admin and the user, the admin is in charge of viewing the database, adding new products , delete, edit, also the same with the exercises that are also part of the propmt that is done to the AI, and by giving us the user can navigate the page, see the products, add them to the cart and buy them, they also have the possibility of Create training plans by filling out the data in a form to create the routines. The project will go so far as to be able to create routines through AI, we are not going to get into the issue of purchases.
+
+As a benefit compared to other sports sales pages, we want our users to see us as more than a store and we help them create better habits, this in order to make our products more attractive, since our audience is healthy people.
+
+
+### Actors:
+Sara Maria Castrillon - Architect - Programmer
+Juan Esteban Castro - Programmer
+Andrés Prada - Programmer
+
+
 ## Prerequisites
 
 Before running the project, make sure you have the following software installed:

@@ -1,5 +1,7 @@
 <?php
 
+// Author: Sara María Castrillón Ríos
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;

@@ -1,4 +1,4 @@
-{{-- Andrés Prada Rodriguez --}}
+<!-- Andrés Prada Rodriguez  -->
 
 @extends('layouts.app')
 

@@ -12,7 +12,7 @@ class ExerciseSeeder extends Seeder
         for ($i = 1; $i <= 30; $i++) {
             Exercise::create([
                 'name' => 'Exercise '.$i,
-                'musclegroup' => 'Muscle Group '.rand(1, 5), // Suponiendo que tienes 5 grupos musculares
+                'musclegroup' => 'Muscle Group '.rand(1, 5),
                 'recommendations' => 'Recommendations for Exercise '.$i,
                 'repetitions' => rand(5, 20),
                 'sets' => rand(3, 5),
