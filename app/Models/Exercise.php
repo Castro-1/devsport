@@ -1,6 +1,6 @@
 <?php
 
-//Andrés Prda Rodríguez
+// Andrés Prda Rodríguez
 
 namespace App\Models;
 
@@ -14,9 +14,9 @@ class Exercise extends Model
     /**
      * EXERCISE ATTRIBUTES
      * $this->attributes['id'] - int - contains the exercise primary key (id)
-     * $this->attributes['routines_id'] - int - contains the exercise routines_id
      * $this->attributes['name'] - string - contains the  exercise name
      * $this->attributes['musclegroup'] - string - contains the exercise musclegroup
+     * $this->attributes['image'] - binary - contains the exercise image
      * $this->attributes['recommendations'] - string - contains the exercise recommendations
      * $this->attributes['repetitions'] - int - contains the exercise repetitions
      * $this->attributes['sets'] - int - contains the exercise sets
@@ -26,12 +26,13 @@ class Exercise extends Model
     protected $fillable = [
         'name',
         'musclegroup',
+        'image',
         'recommendations',
         'repetitions',
         'sets',
     ];
 
-    public static function validate($request): void
+    public static function validate($request)
     {
         $request->validate([
             'name' => 'required|max:255',
@@ -64,12 +65,22 @@ class Exercise extends Model
         $this->attributes['musclegroup'] = $musclegroup;
     }
 
+    public function getImage(): string
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage(?string $image): void
+    {
+        $this->attributes['image'] = $image;
+    }
+
     public function getRecommendations(): string
     {
         return $this->attributes['recommendations'];
     }
 
-    public function setRecommendations(string $recommendations): void
+    public function setRecommendations(?string $recommendations): void
     {
         $this->attributes['recommendations'] = $recommendations;
     }
@@ -79,59 +90,23 @@ class Exercise extends Model
         return $this->attributes['repetitions'];
     }
 
-    public function setRepetitions(int $repetitions): void
+    public function setRepetitions(?int $repetitions): void
     {
         $this->attributes['repetitions'] = $repetitions;
     }
 
-    public function getSets(): int
+    public function getSets(): ?int
     {
         return $this->attributes['sets'];
     }
 
-    public function setImage(string $image): void
-    {
-        $this->attributes['image'] = $image;
-    }
-
-    public function getImage(): string
-    {
-        return $this->attributes['image'];
-    }
-
-    public function setSets(int $sets): void
+    public function setSets(?int $sets): void
     {
         $this->attributes['sets'] = $sets;
     }
 
-    public function routine(): BelongTo
+    public function routines()
     {
-        return $this->belongsTo(Routine::class);
+        return $this->belongsToMany(Routine::class, 'routine_exercise')->withPivot('type')->withTimestamps();
     }
-
-    public function getRoutine(): Routine
-    {
-        return $this->routine;
-    }
-
-    public function getCreatedAt(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function setCreatedAt($value): void
-    {
-        $this->attributes['created_at'] = $value;
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->attributes['updated_at'];
-    }
-
-    public function setUpdatedAt($value): void
-    {
-        $this->attributes['updated_at'] = $value;
-    }
-
 }

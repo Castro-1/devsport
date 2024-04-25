@@ -1,6 +1,6 @@
 <?php
 
-//Andrés Prda Rodríguez
+// Andrés Prda Rodríguez
 
 namespace App\Models;
 
@@ -14,15 +14,14 @@ class Routine extends Model
     /**
      * ROUTINE ATTRIBUTES
      * $this->attributes['id'] - int - contains the routine primary key (id)
-     * $this->attributes['type'] - string - contains the  routine type
-     * $this->attributes['trainingcontexts_id'] - int - contains the routine trainingcontexts_id
+     * $this->attributes['type'] - string - contains the routine type
+     * $this->attributes['trainingcontext_id'] - int - contains the routine trainingcontext_id
      * $this->attributes['created_at'] - timestamp - contains the routine creation date
      * $this->attributes['updated_at'] - timestamp - contains the routine update date
      */
     protected $fillable = [
         'type',
-        'trainingcontexts_id',
-        'exercises_id',
+        'trainingcontext_id',
     ];
 
     public function getId(): int
@@ -40,9 +39,9 @@ class Routine extends Model
         $this->attributes['type'] = $type;
     }
 
-    public function getTrainingcontextsId(): int
+    public function getTrainingcontextId(): int
     {
-        return $this->attributes['trainingcontexts_id'];
+        return $this->attributes['trainingcontext_id'];
     }
 
     public function setTrainingcontextId(int $trainingcontext_id): void
@@ -50,38 +49,13 @@ class Routine extends Model
         $this->attributes['trainingcontext_id'] = $trainingcontext_id;
     }
 
-    public function trainingcontext(): BelongTo
+    public function trainingcontext()
     {
         return $this->belongsTo(Trainingcontext::class);
     }
 
-    public function getExercisesId(): int
+    public function exercises()
     {
-        return $this->attributes['exercises_id'];
-    }
-
-    public function setExercisesId(int $exercises_id): void
-    {
-        $this->attributes['exercises_id'] = $exercises_id;
-    }
-
-    public function getCreatedAt(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function setCreatedAt($value): void
-    {
-        $this->attributes['created_at'] = $value;
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->attributes['updated_at'];
-    }
-
-    public function setUpdatedAt($value): void
-    {
-        $this->attributes['updated_at'] = $value;
+        return $this->belongsToMany(Exercise::class, 'routine_exercise')->withPivot('type')->withTimestamps();
     }
 }

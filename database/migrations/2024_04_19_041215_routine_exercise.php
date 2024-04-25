@@ -13,22 +13,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exercises', function (Blueprint $table) {
+        Schema::create('routine_exercise', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('musclegroup');
-            $table->binary('image')->nullable();
-            $table->string('recommendations')->nullable();
-            $table->string('repetitions')->nullable();
-            $table->string('sets')->nullable();
+            $table->foreignId('routine_id')->constrained()->onDelete('cascade');
+            $table->foreignId('exercise_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('exercises');
+        Schema::dropIfExists('routine_exercise');
     }
 };
+

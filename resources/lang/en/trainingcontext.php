@@ -30,4 +30,13 @@ return [
     'titleD' => 'Training Context Details',
     'information_title' => 'Training Context Information',
     'view_routines_button' => 'View Routines for this Training Context',
+
+    'title' => [
+        'index' => 'Training Context Index',
+        'create' => 'Create Training Context',
+        'show' => 'Show Training Context',
+    ],
+    'subtitle' => [
+        'show' => 'Show Training Context',
+    ],
 ];

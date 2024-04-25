@@ -1,7 +1,8 @@
 {{-- Andrés Prada Rodriguez --}}
 
 @extends('layouts.app')
-
+@section('title', $viewData['title'])
+@section('subtitle', $viewData['title'])
 @section('content')
 
     <h1>{{ __('routine.routine_information') }}</h1>

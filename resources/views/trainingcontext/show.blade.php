@@ -1,7 +1,8 @@
 {{-- Andrés Prada Rodriguez --}}
 
 @extends('layouts.app')
-
+@section('title', $viewData['title'])
+@section('subtitle', $viewData['subtitle'])
 @section('content')
 
     <h1>{{ __('trainingcontext.titleD') }}</h1>

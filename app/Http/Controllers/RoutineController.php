@@ -14,6 +14,8 @@ class RoutineController extends Controller
         $routines = Routine::where('trainingcontexts_id', $trainingcontext_id)->get();
 
         $viewData = [];
+        $viewData['title'] = __('routine.title');
+        $viewData['subtitle'] = __('routine.subtitle');
         $viewData['routines'] = $routines;
 
         return view('routine.index')->with('viewData', $viewData);

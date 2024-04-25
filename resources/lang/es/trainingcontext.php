@@ -29,4 +29,13 @@ return [
     'titleD' => 'Detalles del Contexto de Entrenamiento',
     'information_title' => 'Información del Contexto de Entrenamiento',
     'view_routines_button' => 'Ver Rutinas para este Contexto de Entrenamiento',
+
+    'title' => [
+        'index' => 'Índice de Contextos de Entrenamiento',
+        'create' => 'Crear Contexto de Entrenamiento',
+        'show' => 'Mostrar Contexto de Entrenamiento',
+    ],
+    'subtitle' => [
+        'show' => 'Mostrar Contexto de Entrenamiento',
+    ],
 ];

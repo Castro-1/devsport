@@ -1,7 +1,8 @@
 {{-- Andrés Prada Rodriguez --}}
 
-@extends('layouts.app')
-
+@extends('layouts.app') 
+@section('title', $viewData['title'])
+@section('subtitle', $viewData['title'])
 @section('content')
 
 <div class="container">

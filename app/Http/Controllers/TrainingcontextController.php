@@ -20,7 +20,7 @@ class TrainingcontextController extends Controller
 
         $viewData = [];
         $viewData['trainingcontexts'] = $trainingcontexts;
-        $viewData['title'] = 'Training Context Index';
+        $viewData['title'] = __('trainingcontext.title.index');
         $viewData['user'] = $user;
 
         return view('trainingcontext.index')->with('viewData', $viewData);
@@ -29,7 +29,7 @@ class TrainingcontextController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create trainingcontext';
+        $viewData['title'] = __('trainingcontext.title.create');
 
         return view('trainingcontext.create')->with('viewData', $viewData);
     }
@@ -51,11 +51,14 @@ class TrainingcontextController extends Controller
         return back();
     }
 
-    public function show(Trainingcontext $trainingcontext): View
+    public function show(string $id): View
     {
-        $routines = Routine::where('trainingcontexts_id', $trainingcontext->id)->get();
+        $trainingcontext = Trainingcontext::findOrFail($id);
+        $routines = Routine::where('trainingcontexts_id', $id)->get();
 
         $viewData = [];
+        $viewData['title'] = __('trainingcontext.title.show');
+        $viewData['subtitle'] = __('trainingcontext.subtitle.show');
         $viewData['trainingcontexts'] = $trainingcontext;
         $viewData['routines'] = $routines;
 

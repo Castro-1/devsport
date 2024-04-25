@@ -1,8 +1,8 @@
 {{-- Andrés Prada Rodriguez --}}
 
 @extends('layouts.app')
-
-@section("title", __('trainingcontext.title'))
+@section('title', $viewData['title'])
+@section('subtitle', $viewData['title'])
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
@@ -22,32 +22,32 @@
                 <div class="form-group col-md-6">
                     <label for="name">{{ __('trainingcontext.name') }}</label>
                     <br>
-                    <input class="form-control"  type="text" id="name" name="name">
+                    <input class="form-control"  type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="time">{{ __('trainingcontext.time') }}</label>
                     <br>
-                    <input class="form-control"  type="text" id="time" name="time">
+                    <input class="form-control"  type="number" id="time" name="time" required min="0" step="1">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="place">{{ __('trainingcontext.place') }}</label>
                     <br>
-                    <input class="form-control" type="text" id="place" name="place">
+                    <input class="form-control" type="text" id="place" name="place" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="frequency">{{ __('trainingcontext.frequency') }}</label>
                     <br>
-                    <input class="form-control" type="text" id="frequency" name="frequency">
+                    <input class="form-control" type="text" id="frequency" name="frequency" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="objectives">{{ __('trainingcontext.objectives') }}</label>
                     <br>
-                    <textarea class="form-control" id="objectives" name="objectives"></textarea>
+                    <textarea class="form-control" id="objectives" name="objectives" required></textarea>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="specifications">{{ __('trainingcontext.specifications') }}</label>
                     <br>
-                    <textarea class="form-control" id="specifications" name="specifications"></textarea>
+                    <textarea class="form-control" id="specifications" name="specifications" required></textarea>
                 </div>
                 <br>
                 <div>

@@ -1,7 +1,8 @@
 {{-- Andrés Prada Rodriguez --}}
 
 @extends('layouts.app')
-
+@section('title', $viewData['title'])
+@section('subtitle', $viewData['title'])
 @section('content')
     <h1>{{ __('trainingcontext.training_contexts') }}</h1>
     @if (is_null($viewData['user']->getAge()))
@@ -39,7 +40,7 @@
                         <div class="card">
                             <div class="card-body d-flex justify-content-between">
                                 <h5 class="card-title">{{ $trainingcontext->getName() }}</h5>
-                                <a href="{{ route('trainingcontext.show', $trainingcontext) }}" class="btn btn-outline-secondary">{{ __('trainingcontext.view_details_button') }}</a>
+                                <a href="{{ route('trainingcontext.show', $trainingcontext->getId() ) }}" class="btn btn-outline-secondary">{{ __('trainingcontext.view_details_button') }}</a>
                             </div>
                         </div>
                     </div>

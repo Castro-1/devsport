@@ -7,4 +7,6 @@ return [
     'no_routines_found' => 'No se encontraron rutinas',
     'routine_information' => 'Información de la Rutina',
     'type' => 'Tipo',
+    'title' => 'Índice de Rutinas',
+    'subtitle' => 'Índice de Rutinas',
 ];
