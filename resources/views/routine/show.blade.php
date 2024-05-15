@@ -16,4 +16,13 @@
         </div>
     </div>
 
+    <h2>{{ __('routine.related_exercises') }}</h2>
+
+    <ul>
+        @foreach ($viewData['exercises'] as $exercise)
+            <li>{{ $exercise->getName() }}</li>
+            <a href="{{ route('exercise.show', $exercise->getId() ) }}" class="btn btn-outline-secondary">{{ __('exercise.view_details_button') }}</a>
+        @endforeach
+    </ul>
+
 @endsection

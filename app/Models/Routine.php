@@ -12,12 +12,14 @@ class Routine extends Model
      * ROUTINE ATTRIBUTES
      * $this->attributes['id'] - int - contains the routine primary key (id)
      * $this->attributes['type'] - string - contains the routine type
+     * $this->attributes['name'] - string - contains the routine name
      * $this->attributes['trainingcontext_id'] - int - contains the routine trainingcontext_id
      * $this->attributes['created_at'] - timestamp - contains the routine creation date
      * $this->attributes['updated_at'] - timestamp - contains the routine update date
      */
     protected $fillable = [
         'type',
+        'name',
         'trainingcontext_id',
     ];
 
@@ -34,6 +36,16 @@ class Routine extends Model
     public function setType(string $type): void
     {
         $this->attributes['type'] = $type;
+    }
+
+    public function getName(): string | null
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName(string $name): void
+    {
+        $this->attributes['name'] = $name;
     }
 
     public function getTrainingcontextId(): int
@@ -53,6 +65,6 @@ class Routine extends Model
 
     public function exercises()
     {
-        return $this->belongsToMany(Exercise::class, 'routine_exercise')->withPivot('type')->withTimestamps();
+        return $this->belongsToMany(Exercise::class, 'routine_exercise');
     }
 }

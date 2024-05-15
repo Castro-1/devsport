@@ -17,6 +17,7 @@
                     <ul>
                         @foreach ($viewData['routines'] as $routine)
                             <li>{{ $routine->getName() }}</li>
+                            <a href="{{ route('routine.show', $routine->getId() ) }}" class="btn btn-outline-secondary">{{ __('routine.view_details_button') }}</a>
                         @endforeach
                     </ul>
                 </div>

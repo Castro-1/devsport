@@ -29,7 +29,7 @@ class Exercise extends Model
         'image',
         'recommendations',
         'repetitions',
-        'sets',
+        'sets', 
     ];
 
     public static function validate($request)
@@ -45,7 +45,7 @@ class Exercise extends Model
         return $this->attributes['id'];
     }
 
-    public function getName(): string
+    public function getName(): string | null
     {
         return $this->attributes['name'];
     }

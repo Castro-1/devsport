@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('routines', function (Blueprint $table) {
             $table->id();
             $table->foreignId('trainingcontexts_id')->constrained()->onDelete('cascade');
+            $table->string('name');
             $table->string('type');
             $table->timestamps();
         });

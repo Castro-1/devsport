@@ -19,8 +19,9 @@ class ExerciseController extends Controller
         return view('exercise.index')->with('viewData', $viewData);
     }
 
-    public function show(Exercise $exercise): View
+    public function show(int $exercise_id): View
     {
+        $exercise = Exercise::findOrFail($exercise_id);
         $viewData = [];
         $viewData['exercise'] = $exercise;
 
