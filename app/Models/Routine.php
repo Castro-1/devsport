@@ -11,14 +11,14 @@ class Routine extends Model
     /**
      * ROUTINE ATTRIBUTES
      * $this->attributes['id'] - int - contains the routine primary key (id)
-     * $this->attributes['type'] - string - contains the routine type
+     * $this->attributes['specifications'] - string - contains the routine specifications
      * $this->attributes['name'] - string - contains the routine name
      * $this->attributes['trainingcontext_id'] - int - contains the routine trainingcontext_id
      * $this->attributes['created_at'] - timestamp - contains the routine creation date
      * $this->attributes['updated_at'] - timestamp - contains the routine update date
      */
     protected $fillable = [
-        'type',
+        'specifications',
         'name',
         'trainingcontexts_id',
     ];
@@ -28,14 +28,14 @@ class Routine extends Model
         return $this->attributes['id'];
     }
 
-    public function getType(): string
+    public function getSpecifications(): string
     {
-        return $this->attributes['type'];
+        return $this->attributes['specifications'];
     }
 
-    public function setType(string $type): void
+    public function setSpecifications(string $specifications): void
     {
-        $this->attributes['type'] = $type;
+        $this->attributes['specifications'] = $specifications;
     }
 
     public function getName(): string | null

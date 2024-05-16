@@ -15,10 +15,10 @@
             <input type="number" name="age" id="age" value="{{ old('age', $viewData['user']->age) }}" required>
 
             <label for="weight">{{ __('trainingcontext.weight') }}:</label>
-            <input type="number" name="weight" id="weight" value="{{ old('weight', $viewData['user']->weight) }}" required>
+            <input type="number" name="weight" id="weight" value="{{ old('weight', $viewData['user']->weight) }}" step="any" required>
 
             <label for="height">{{ __('trainingcontext.height') }}:</label>
-            <input type="number" name="height" id="height" value="{{ old('height', $viewData['user']->height) }}" required>
+            <input type="number" name="height" id="height" value="{{ old('height', $viewData['user']->height) }}" step="any" required>
 
             <label for="gender">{{ __('trainingcontext.gender') }}:</label>
             <select name="gender" id="gender" required>

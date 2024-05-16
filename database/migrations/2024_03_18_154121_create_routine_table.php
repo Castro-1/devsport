@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('trainingcontexts_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('type');
+            $table->string('specifications', 2000);
             $table->timestamps();
         });
     }

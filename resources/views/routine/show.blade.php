@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong></strong> {{ $viewData['routine']->getType() }}</li>
+                <li class="list-group-item"><strong></strong> {{ $viewData['routine']->getSpecifications() }}</li>
             </ul>
         </div>
     </div>

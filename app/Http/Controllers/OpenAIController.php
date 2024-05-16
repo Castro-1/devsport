@@ -62,7 +62,7 @@ class OpenAIController extends Controller
         $text = $response['choices'][0]['text'];
 
         $newRoutine->setName(__('openai.routine.generated_name'));
-        $newRoutine->setType($text);
+        $newRoutine->setSpecifications($text);
         $newRoutine->save();
 
         return redirect()->back()->with('viewData', $viewData);
