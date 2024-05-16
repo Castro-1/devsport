@@ -130,7 +130,9 @@ DB_PASSWORD=
 ## How To Run The Project
 
 Finally you can run the program using Artisan's serve command to start a development server. Run the following command:
+
 ```
+composer require openai-php/client
 php artisan serve
 ```
 

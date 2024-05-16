@@ -51,16 +51,18 @@ class TrainingcontextController extends Controller
         return back();
     }
 
-    public function show(string $id): View
+    public function show(Request $request, string $id): View
     {
         $trainingcontext = Trainingcontext::findOrFail($id);
         $routines = Routine::where('trainingcontexts_id', $id)->get();
+        $user = $request->user();
 
         $viewData = [];
         $viewData['title'] = __('trainingcontext.title.show');
         $viewData['subtitle'] = __('trainingcontext.subtitle.show');
         $viewData['trainingcontexts'] = $trainingcontext;
         $viewData['routines'] = $routines;
+        $viewData['user'] = $user;
 
         return view('trainingcontext.show')->with('viewData', $viewData);
     }

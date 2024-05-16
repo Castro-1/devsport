@@ -9,7 +9,6 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{ __('trainingcontext.information_title') }}</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>{{ __('trainingcontext.name') }}</strong> {{ $viewData['trainingcontexts']->getName() }}</li>
                 <li class="list-group-item"><strong>{{ __('trainingcontext.time') }}</strong> {{ $viewData['trainingcontexts']->getTime() }}</li>
@@ -29,5 +28,14 @@
         </a>
     </div>
 
-@endsection
+    <div>
+        <form action="{{ route('openai.generateroutine', ['trainingcontext_id' => $viewData['trainingcontexts']->id, 'user_id' => $viewData['user']->id]) }}" method="post">
+            @csrf
+            <button type="submit" class="btn btn-outline-secondary mb-2">
+                {{ __('openai.button.generateroutine') }}
+            </button>
+        </form>
+    </div>
 
+
+@endsection

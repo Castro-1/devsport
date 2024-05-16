@@ -48,4 +48,8 @@ Route::get('/exercise', 'App\Http\Controllers\ExerciseController@index')->name('
 Route::get('/exercise/{id}', 'App\Http\Controllers\ExerciseController@show')->name('exercise.show');
 Route::put('/user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
 
+
+// OpenAI routes -------------------------------
+Route::post('/openai/generateroutine/{trainingcontext_id}/{user_id}', 'App\Http\Controllers\OpenAIController@generateroutine')->name('openai.generateroutine');
+
 Auth::routes();

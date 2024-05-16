@@ -20,7 +20,7 @@ class Routine extends Model
     protected $fillable = [
         'type',
         'name',
-        'trainingcontext_id',
+        'trainingcontexts_id',
     ];
 
     public function getId(): int
@@ -50,12 +50,12 @@ class Routine extends Model
 
     public function getTrainingcontextId(): int
     {
-        return $this->attributes['trainingcontext_id'];
+        return $this->attributes['trainingcontexts_id'];
     }
 
     public function setTrainingcontextId(int $trainingcontext_id): void
     {
-        $this->attributes['trainingcontext_id'] = $trainingcontext_id;
+        $this->attributes['trainingcontexts_id'] = $trainingcontext_id;
     }
 
     public function trainingcontext()

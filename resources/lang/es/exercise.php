@@ -9,7 +9,7 @@ return [
     'description' => 'Descripción',
     'actions' => 'Acciones',
     'view' => 'Ver',
-    'view_details_button' => 'Ver Detalles',
+    'view_details_button' => 'Ver Ejercicios',
 
     'exercise_information' => 'Información del Ejercicio',
     'muscle_group' => 'Grupo Muscular',

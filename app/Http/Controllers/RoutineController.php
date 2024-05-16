@@ -33,4 +33,24 @@ class RoutineController extends Controller
 
         return view('routine.show')->with('viewData', $viewData);
     }
+
+    public function create(): View
+    {
+        $viewData = [];
+        $viewData['title'] = __('routine.title.create');
+        $viewData['subtitle'] = __('routine.subtitle.create');
+
+        return view('routine.create')->with('viewData', $viewData);
+    }
+
+    public function save(): RedirectResponse
+    {
+        $newRoutine = new Routine();
+        $newRoutine->setName($request->input('name'));
+        $newRoutine->setTrainingcontextsId($request->input('trainingcontexts_id'));
+
+        $newRoutine->save();
+
+        return back();
+    }
 }

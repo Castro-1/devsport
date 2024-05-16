@@ -9,7 +9,7 @@ return [
     'description' => 'Description',
     'actions' => 'Actions',
     'view' => 'View',
-    'view_details_button' => 'View Details',
+    'view_details_button' => 'View Exercises',
 
     'exercise_information' => 'Exercise information',
     'muscle_group' => 'Muscle Group',

@@ -9,20 +9,13 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{ __('routine.routine_information') }}</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>{{ __('routine.type') }}:</strong> {{ $viewData['routine']->getType() }}</li>
+                <li class="list-group-item"><strong></strong> {{ $viewData['routine']->getType() }}</li>
             </ul>
         </div>
     </div>
-
-    <h2>{{ __('routine.related_exercises') }}</h2>
-
     <ul>
-        @foreach ($viewData['exercises'] as $exercise)
-            <li>{{ $exercise->getName() }}</li>
-            <a href="{{ route('exercise.show', $exercise->getId() ) }}" class="btn btn-outline-secondary">{{ __('exercise.view_details_button') }}</a>
-        @endforeach
+        <a href="{{ route('exercise.index') }}" class="btn btn-outline-secondary">{{ __('exercise.view_details_button') }}</a>
     </ul>
 
 @endsection
