@@ -38,7 +38,7 @@ class Routine extends Model
         $this->attributes['specifications'] = $specifications;
     }
 
-    public function getName(): string | null
+    public function getName(): ?string
     {
         return $this->attributes['name'];
     }

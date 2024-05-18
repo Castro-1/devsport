@@ -160,7 +160,7 @@ class Product extends Model
         if ($term) {
             return $query->where(function ($query) use ($term) {
                 $query->where('name', 'like', "%{$term}%")
-                      ->orWhere('description', 'like', "%{$term}%");
+                    ->orWhere('description', 'like', "%{$term}%");
             });
         }
 
@@ -179,5 +179,20 @@ class Product extends Model
     public function scopeSortByPrice($query, $sort = 'asc')
     {
         return $query->orderBy('price', $sort);
+    }
+
+    public function toApiResponse()
+    {
+        $this->makeHidden(['image', 'created_at', 'updated_at']);
+        $this->link = url('/products/'.$this->id);
+
+        return $this;
+    }
+
+    public static function allForApiResponse()
+    {
+        return self::all()->map(function ($product) {
+            return $product->toApiResponse();
+        });
     }
 }

@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Trainingcontext;
-use App\Models\User;
 use App\Models\Exercise;
 use App\Models\Routine;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use App\Models\Trainingcontext;
+use App\Models\User;
 use OpenAI;
 
 class OpenAIController extends Controller
 {
-    public function generateroutine(String $trainingcontext_id, String $user_id)
+    public function generateroutine(string $trainingcontext_id, string $user_id)
     {
         $viewData = [];
         $viewData['title'] = __('openai.title.generateroutine');
@@ -29,13 +27,13 @@ class OpenAIController extends Controller
         $exercises = Exercise::all();
 
         // Preparar el prompt
-        $prompt = __('openai.prompt.intro') . "\n\n";
+        $prompt = __('openai.prompt.intro')."\n\n";
         $prompt .= __('openai.prompt.user_info', [
             'name' => $user->getName(),
             'age' => $user->getAge(),
             'weight' => $user->getWeight(),
             'height' => $user->getHeight(),
-            'gender' => $user->getGender()
+            'gender' => $user->getGender(),
         ]);
         $prompt .= "\n\n";
         $prompt .= __('openai.prompt.training_info', [
@@ -44,12 +42,12 @@ class OpenAIController extends Controller
             'place' => $trainingcontext->getPlace(),
             'frequency' => $trainingcontext->getFrequency(),
             'objectives' => $trainingcontext->getObjectives(),
-            'specifications' => $trainingcontext->getSpecifications()
+            'specifications' => $trainingcontext->getSpecifications(),
         ]);
-        
-        $prompt .= "\n\n" . __('openai.prompt.exercises') . "\n";
+
+        $prompt .= "\n\n".__('openai.prompt.exercises')."\n";
         foreach ($exercises as $exercise) {
-            $prompt .= "- " . $exercise->getName() . ": " . $exercise->getMusclegroup() . $exercise->getRecommendations() . "\n";
+            $prompt .= '- '.$exercise->getName().': '.$exercise->getMusclegroup().$exercise->getRecommendations()."\n";
         }
 
         // Llamar a la API de OpenAI
@@ -57,7 +55,7 @@ class OpenAIController extends Controller
             'model' => 'gpt-3.5-turbo-instruct',
             'prompt' => $prompt,
             'max_tokens' => 500,
-            'temperature' => 0
+            'temperature' => 0,
         ]);
 
         $text = $response['choices'][0]['text'];

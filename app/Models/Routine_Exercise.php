@@ -1,6 +1,6 @@
 <?php
 
-// Andrés Prada Rodríguez  
+// Andrés Prada Rodríguez
 
 namespace App\Models;
 

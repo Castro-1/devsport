@@ -153,7 +153,7 @@ class User extends Authenticatable
         $this->orders = $orders;
     }
 
-    public function getAge(): int| NULL
+    public function getAge(): ?int
     {
         return $this->attributes['age'];
     }

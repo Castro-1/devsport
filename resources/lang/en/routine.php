@@ -14,7 +14,7 @@ return [
         'show' => 'Show Routine',
     ],
     'subtitle' => [
-        'index'=>'Routine Index',
+        'index' => 'Routine Index',
         'show' => 'Show Routine',
     ],
 ];
