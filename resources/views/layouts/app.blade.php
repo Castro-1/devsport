@@ -39,7 +39,7 @@
                             (0)
                         @endif
                     </a>
-
+                    <a class="nav-link active" href="{{ route('externalproduct.index') }}">Allies</a>
 
 
                     <!-- Auth -->

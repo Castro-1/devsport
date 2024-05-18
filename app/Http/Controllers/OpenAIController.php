@@ -46,6 +46,7 @@ class OpenAIController extends Controller
             'objectives' => $trainingcontext->getObjectives(),
             'specifications' => $trainingcontext->getSpecifications()
         ]);
+        
         $prompt .= "\n\n" . __('openai.prompt.exercises') . "\n";
         foreach ($exercises as $exercise) {
             $prompt .= "- " . $exercise->getName() . ": " . $exercise->getMusclegroup() . $exercise->getRecommendations() . "\n";

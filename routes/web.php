@@ -52,4 +52,8 @@ Route::put('/user/update', 'App\Http\Controllers\UserController@update')->name('
 // OpenAI routes -------------------------------
 Route::post('/openai/generateroutine/{trainingcontext_id}/{user_id}', 'App\Http\Controllers\OpenAIController@generateroutine')->name('openai.generateroutine');
 
+//External API routes -------------------------------
+Route::get('/game/products', 'App\Http\Controllers\ExternalProductController@index')->name('externalproduct.index');
+
+
 Auth::routes();

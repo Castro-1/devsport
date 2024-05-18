@@ -1,0 +1,20 @@
+[
+    {
+        "id": 2,
+        "name": "Play station 4",
+        "price": 1000,
+        "description": "Super consola"
+    },
+    {
+        "id": 3,
+        "name": "Torre Asus",
+        "price": 900,
+        "description": "Torre gamer overclocked"
+    },
+    {
+        "id": 4,
+        "name": "Mouse gamer",
+        "price": 250,
+        "description": "Increíble mouse gamer"
+    }
+]
