@@ -23,6 +23,8 @@ RUN chmod -R 777 storage
 RUN php artisan storage:link
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 RUN a2enmod rewrite
 
 EXPOSE 80
