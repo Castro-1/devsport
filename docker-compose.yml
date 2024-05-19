@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    image: devsport
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./storage:/var/www/html/storage
+      - ./public:/var/www/html/public
+    environment:
+      - APACHE_RUN_USER=www-data
+      - APACHE_RUN_GROUP=www-data
+    command: ["apache2-foreground"]
