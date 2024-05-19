@@ -61,6 +61,7 @@ return [
         'remove' => 'Remove',
         'created_at' => 'Created at',
         'updated_at' => 'Updated at',
+        'view_details' => 'View details',
     ],
     'cart' => [
         'empty' => 'Cart is empty',

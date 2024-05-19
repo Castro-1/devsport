@@ -7,4 +7,8 @@ return [
     'subtitle' => [
         'index' => 'Shopping Cart',
     ],
+    'table' => [
+        'title' => 'Products in Cart',
+    ],
+    'empty' => 'Your cart is empty :(',
 ];

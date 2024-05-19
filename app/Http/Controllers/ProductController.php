@@ -16,6 +16,10 @@ class ProductController extends Controller
         $category = $request->get('category');
         $sort = $request->get('sort', 'asc');
 
+        if (! in_array($sort, ['asc', 'desc'])) {
+            $sort = 'asc';
+        }
+
         $viewData = [];
         $viewData['categories'] = Product::select('category')->distinct()->get();
         $viewData['title'] = __('products.title.index');
@@ -34,8 +38,8 @@ class ProductController extends Controller
             return redirect()->route('product.index');
         }
         $product = Product::findOrFail($id);
-        $viewData['title'] = $product->getName().__('products.title.show');
-        $viewData['subtitle'] = $product->getName().__('products.subtitle.show');
+        $viewData['title'] = $product->getName();
+        $viewData['subtitle'] = $product->getName();
         $viewData['product'] = $product;
 
         return view('product.show')->with('viewData', $viewData);

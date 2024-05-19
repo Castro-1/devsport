@@ -1,5 +1,3 @@
-<!-- Author: Juan Esteban Castro, Sara María Castrillón Ríos -->
-
 @extends('layouts.app')
 
 @section('title', $viewData['title'])
@@ -52,19 +50,19 @@
                 <div class="col-12">
                     @if($viewData['lastProduct'])
                     <h3 class="mb-3">{{ __('home.new_products') }}</h3>
-                    <div class="card mb-3">
+                    <div class="card mb-3 last-product-card shadow-sm">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src={{ URL::asset($viewData['lastProduct']->getImage()) }} class="card-img"
+                                <img src="{{ URL::asset($viewData['lastProduct']->getImage()) }}" class="card-img last-product-img"
                                     alt="{{ $viewData['lastProduct']->getName() }}">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $viewData['lastProduct']->getName() }}</h5>
                                     <p class="card-text">{{ $viewData['lastProduct']->getDescription() }}</p>
-                                    <p class="card-text">${{ $viewData['lastProduct']->getPrice() }}</p>
+                                    <p class="card-text text-muted">${{ $viewData['lastProduct']->getPrice() }}</p>
                                     <a href="{{ route('product.show', ['id' => $viewData['lastProduct']->getId()]) }}"
-                                        class="btn btn-outline-secondary mb-2">{{ __('home.details_button') }}</a>
+                                        class="btn btn-outline-primary">{{ __('home.details_button') }}</a>
                                 </div>
                             </div>
                         </div>

@@ -1,19 +1,18 @@
-/* Author: Sara María Castrillón Ríos */
-
 :root {
-  /* --primary-color: rgba(255, 255, 0, 0.4); */
-  --primary-color: rgb(212,42,42);
-  --primary-opacity: rgba(38, 38, 38, 0.4);
-  --secundary-color:#262626;
-  --tertiary-color:#1a252f;
+  --primary-color: rgb(212, 42, 42);
+  --primary-opacity: rgba(212, 42, 42, 0.4);
+  --secondary-color: #262626;
+  --tertiary-color: #1a252f;
+  --gray-light: #f8f9fa;
+  --gray-dark: #343a40;
 }
 
-/* LAYOUT APP --------------------------------------------------------------------- */
+/* General Styles */
 
 a {
   background-color: transparent;
   text-decoration: none;
-  color: #fff;
+  color: var(--gray-light);
 }
 
 a:hover {
@@ -21,11 +20,11 @@ a:hover {
 }
 
 .bg-secondary {
-  background-color: var(--secundary-color) !important;
+  background-color: var(--secondary-color) !important;
 }
 
 .footer {
-  background-color:var(--secundary-color);
+  background-color: var(--secondary-color);
 }
 
 .footer .menu-footer {
@@ -41,27 +40,21 @@ a:hover {
   text-align: left;
 }
 
-.menu-footer :hover {
+.menu-footer:hover {
   text-decoration: none;
 }
-
 
 .bg-primary {
   background-color: var(--primary-color) !important;
 }
 
-nav{
+nav {
   font-weight: 700;
 }
 
 header > div > h2 {
-  color: #fff;
+  color: var(--gray-light);
   font-weight: 700;
-}
-
-.img-card{
-  height: 18vw;
-  object-fit: cover;
 }
 
 .form-trainingcontext {
@@ -71,16 +64,303 @@ header > div > h2 {
   flex-direction: column;
 }
 
-.card-body-trainingcontext{
+.card-body-trainingcontext {
   width: 30%;
   height: 30%;
 }
 
-.card-header-trainingcontext{
-  background-color: var(--secundary-color);
+.card-header-trainingcontext {
+  background-color: var(--secondary-color);
   color: black;
 }
 
+/* Products */
 
+.card-container {
+  height: 25vw;
+  transition: transform 0.2s;
+  border: 1px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+  color: var(--gray-dark);
+}
 
+.card-container:hover {
+  transform: scale(1.05);
+  border-color: var(--gray-dark);
+}
 
+.product-name {
+  height: 50px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.input-group .form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  padding-right: 30px;
+}
+
+.input-group .form-select::after {
+  content: '\25BC'; /* Unicode character for down arrow */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.btn-outline-secondary,
+.btn-outline-danger {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-danger:hover {
+  color: var(--gray-light);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.input-group-text i {
+  font-size: 1.2em;
+}
+
+.img-card {
+  height: 14vw;
+  object-fit: cover;
+}
+
+.product-link {
+  position: relative;
+  display: block;
+}
+
+.product-link .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-link:hover .overlay {
+  opacity: 1;
+}
+
+.overlay .text {
+  color: var(--gray-light);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Show Product */
+
+.product-detail {
+  border: none;
+}
+
+.product-detail img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.product-detail-body {
+  padding: 2rem;
+}
+
+.product-detail-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.product-detail-subtitle {
+  font-size: 1.5rem;
+  color: var(--gray-dark);
+}
+
+.product-detail-category,
+.product-detail-description {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.input-group-text {
+  background-color: var(--primary-color);
+  color: var(--gray-light);
+  border: 1px solid var(--primary-color);
+}
+
+.quantity-input {
+  border: 1px solid var(--primary-color);
+}
+
+.quantity-input:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-opacity);
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 767.98px) {
+  .product-detail-body {
+    padding: 1rem;
+  }
+
+  .product-detail-title {
+    font-size: 1.5rem;
+  }
+
+  .product-detail-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Cart */
+
+.custom-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+}
+
+.custom-card-header {
+  background-color: var(--primary-color);
+  color: var(--gray-light);
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.custom-card-body {
+  padding: 2rem;
+  background-color: var(--gray-light);
+}
+
+.larger-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-opacity);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-danger {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-danger:hover {
+  color: var(--gray-light);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-danger {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-danger:hover {
+  background-color: var(--primary-opacity);
+  border-color: var(--primary-color);
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+@media (max-width: 767.98px) {
+  .custom-card-body {
+    padding: 1rem;
+  }
+
+  .btn-primary,
+  .btn-outline-danger,
+  .btn-danger,
+  .btn-success {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* Last Product Display */
+.last-product-card {
+  border: none;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+.last-product-img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+.card-text {
+  font-size: 1rem;
+  color: var(--gray-dark);
+  margin-bottom: 1rem;
+}
+
+.card-text.text-muted {
+  color: var(--secondary-color);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
