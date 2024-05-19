@@ -19,14 +19,16 @@ RUN composer install \
 
 RUN php artisan key:generate
 RUN php artisan migrate
-RUN chmod -R 777 storage
-RUN php artisan storage:link
+
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Habilitar módulo rewrite de Apache
 RUN a2enmod rewrite
 
 EXPOSE 80
 
+# Comando para iniciar Apache en primer plano
 CMD ["apache2-foreground"]
