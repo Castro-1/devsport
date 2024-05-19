@@ -19,7 +19,6 @@ RUN composer install \
 
 RUN php artisan key:generate
 RUN php artisan migrate
-RUN php artisan db:seed
 RUN chmod -R 777 storage
 RUN php artisan storage:link
 RUN chown -R www-data:www-data /var/www/html
