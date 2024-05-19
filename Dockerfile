@@ -25,8 +25,6 @@ RUN php artisan key:generate
 RUN php artisan migrate
 
 # Establecer permisos y propiedad correctos
-RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
-RUN php artisan storage:link
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
 
@@ -36,5 +34,5 @@ RUN a2enmod rewrite
 # Exponer el puerto 80
 EXPOSE 80
 
-# Comando para iniciar Apache en primer plano
-CMD ["apache2-foreground"]
+# Crear el enlace simbólico después de montar los volúmenes y asegurarse de que el contenedor tiene permisos adecuados
+CMD ["sh", "-c", "php artisan storage:link && apache2-foreground"]

@@ -15,4 +15,4 @@ services:
     environment:
       - APACHE_RUN_USER=www-data
       - APACHE_RUN_GROUP=www-data
-    command: ["apache2-foreground"]
+    command: ["sh", "-c", "php artisan storage:link && apache2-foreground"]
