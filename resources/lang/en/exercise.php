@@ -10,6 +10,7 @@ return [
     'actions' => 'Actions',
     'view' => 'View',
     'view_details_button' => 'View Exercises',
+    'generate_pdf' => 'Generate PDF',
 
     'exercise_information' => 'Exercise information',
     'muscle_group' => 'Muscle Group',

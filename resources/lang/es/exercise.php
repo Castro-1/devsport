@@ -10,6 +10,7 @@ return [
     'actions' => 'Acciones',
     'view' => 'Ver',
     'view_details_button' => 'Ver Ejercicios',
+    'generate_pdf' => 'Generar PDF',
 
     'exercise_information' => 'Información del Ejercicio',
     'muscle_group' => 'Grupo Muscular',

@@ -44,6 +44,7 @@ Route::post('/trainingcontext/save', 'App\Http\Controllers\TrainingcontextContro
 Route::get('/trainingcontext/{trainingcontext}', 'App\Http\Controllers\TrainingcontextController@show')->name('trainingcontext.show');
 Route::get('/routines/{trainingcontext_id}', 'App\Http\Controllers\RoutineController@index')->name('routines.index');
 Route::get('/routines/{routine_id}/show', 'App\Http\Controllers\RoutineController@show')->name('routine.show');
+Route::get('/routines/{routine_id}/show/pdf', 'App\Http\Controllers\RoutineController@generateReport')->name('routine.generateReport');
 Route::get('/exercise', 'App\Http\Controllers\ExerciseController@index')->name('exercise.index');
 Route::get('/exercise/{id}', 'App\Http\Controllers\ExerciseController@show')->name('exercise.show');
 Route::put('/user/update', 'App\Http\Controllers\UserController@update')->name('user.update');

@@ -5,10 +5,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Routine;
+use App\Interfaces\ReportBuilder;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class RoutineController extends Controller
 {
+    protected $reportBuilder;
+
+    public function __construct(ReportBuilder $reportBuilder)
+    {
+        $this->reportBuilder = $reportBuilder;
+    }
+
     public function index($trainingcontext_id): View
     {
         $routines = Routine::where('trainingcontexts_id', $trainingcontext_id)->get();
@@ -43,14 +54,25 @@ class RoutineController extends Controller
         return view('routine.create')->with('viewData', $viewData);
     }
 
-    public function save(): RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         $newRoutine = new Routine();
-        $newRoutine->setName($request->input('name'));
-        $newRoutine->setTrainingcontextsId($request->input('trainingcontexts_id'));
+        $newRoutine->name = $request->input('name');
+        $newRoutine->trainingcontexts_id = $request->input('trainingcontexts_id');
 
         $newRoutine->save();
 
         return back();
     }
+
+
+    public function generateReport(int $routine_id)
+    {
+        $routine = Routine::findOrFail($routine_id);
+
+        // Inject the ReportBuilder dependency
+        return $this->reportBuilder->generateReport($routine);
+        return back();
+    }
+
 }
