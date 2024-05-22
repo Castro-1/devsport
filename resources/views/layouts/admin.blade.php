@@ -24,7 +24,6 @@
       <ul class="nav flex-column"> 
         <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">{{ __('admin.home_link') }}</a></li> 
         <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{ __('admin.products_link') }}</a></li> 
-        <li><a href="{{ route('admin.exercise.index') }}" class="nav-link text-white">{{ __('admin.exercises_link') }}</a></li> 
         <li> 
           <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">{{ __('admin.go_home') }}</a> 
         </li> 

@@ -29,16 +29,18 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () {
     Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminProductController@delete')->name('admin.product.delete');
     Route::get('/admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('admin.product.edit');
     Route::put('/admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
-    
+
 });
 
 // User routes -------------------------------
 Route::get('/trainingcontext', 'App\Http\Controllers\TrainingcontextController@index')->name('trainingcontext.index');
 Route::get('/trainingcontext/create', 'App\Http\Controllers\TrainingcontextController@create')->name('trainingcontext.create');
 Route::post('/trainingcontext/save', 'App\Http\Controllers\TrainingcontextController@save')->name('trainingcontext.save');
+Route::delete('/trainingcontext/delete/{trainingcontext}', 'App\Http\Controllers\TrainingcontextController@delete')->name('trainingcontext.delete');
 Route::get('/trainingcontext/{trainingcontext}', 'App\Http\Controllers\TrainingcontextController@show')->name('trainingcontext.show');
 Route::get('/routines/{trainingcontext_id}', 'App\Http\Controllers\RoutineController@index')->name('routines.index');
-Route::get('/routines/{routine_id}/show', 'App\Http\Controllers\RoutineController@show')->name('routine.show');
+Route::delete('/routines/{routine_id}/{trainingcontext_id}/delete', 'App\Http\Controllers\RoutineController@delete')->name('routine.delete');
+Route::get('/routines/{routine_id}/{trainingcontext_id}/show', 'App\Http\Controllers\RoutineController@show')->name('routine.show');
 Route::get('/routines/{routine_id}/show/pdf', 'App\Http\Controllers\RoutineController@generateReport')->name('routine.generateReport');
 Route::put('/user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
 

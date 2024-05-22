@@ -7,6 +7,12 @@
 
     <h1>{{ __('trainingcontext.titleD') }}</h1>
 
+    @if(isset($viewData['success_message']))
+        <div class="alert alert-success">
+            {{ $viewData['success_message'] }}
+        </div>
+    @endif
+
     <div class="card">
         <div class="card-body">
             <ul class="list-group list-group-flush">
@@ -37,5 +43,14 @@
         </form>
     </div>
 
+    <div>
+        <form action="{{ route('trainingcontext.delete', $viewData['trainingcontexts']->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-outline-secondary mb-2" onclick="return confirm('{{ __('Are you sure you want to delete this item?') }}')">
+                {{ __('Delete') }}
+            </button>
+        </form>
+    </div>
 
 @endsection

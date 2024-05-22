@@ -23,7 +23,6 @@ class OpenAIController extends Controller
 
         $trainingcontext = Trainingcontext::findOrFail($trainingcontext_id);
         $user = User::findOrFail($user_id);
-        $exercises = Exercise::all();
 
         // Preparar el prompt
         $prompt = __('openai.prompt.intro')."\n\n";
@@ -56,6 +55,7 @@ class OpenAIController extends Controller
         $newRoutine->setName(__('openai.routine.generated_name'));
         $newRoutine->setSpecifications($text);
         $newRoutine->save();
+        $viewData['success_message'] = 'Successfully created routine with AI.';
 
         return redirect()->back()->with('viewData', $viewData);
     }

@@ -62,9 +62,4 @@ class Routine extends Model
     {
         return $this->belongsTo(Trainingcontext::class);
     }
-
-    public function exercises()
-    {
-        return $this->belongsToMany(Exercise::class, 'routine_exercise');
-    }
 }

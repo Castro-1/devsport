@@ -22,6 +22,7 @@ class TrainingcontextController extends Controller
         $viewData['trainingcontexts'] = $trainingcontexts;
         $viewData['title'] = __('trainingcontext.title.index');
         $viewData['user'] = $user;
+        $vieData['success'] = 'null';
 
         return view('trainingcontext.index')->with('viewData', $viewData);
     }
@@ -36,6 +37,7 @@ class TrainingcontextController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
+
         $user_id = $request->user()->id;
         $newTrainingcontext = new Trainingcontext();
         $newTrainingcontext->setName($request->input('name'));
@@ -48,7 +50,7 @@ class TrainingcontextController extends Controller
 
         $newTrainingcontext->save();
 
-        return back();
+        return redirect()->back()->with('success', 'Successfully created Training context');
     }
 
     public function show(Request $request, string $id): View
@@ -65,5 +67,24 @@ class TrainingcontextController extends Controller
         $viewData['user'] = $user;
 
         return view('trainingcontext.show')->with('viewData', $viewData);
+    }
+
+    public function delete(Request $request, string $id): view
+    {
+        
+        $trainingcontext = Trainingcontext::findOrFail($id);
+        $trainingcontext->delete();
+
+        $user_id = $request->user()->id;
+        $user = $request->user();
+        $trainingcontexts = Trainingcontext::where('users_id', $user_id)->get();
+
+        $viewData = [];
+        $viewData['title'] = __('trainingcontext.title.create');
+        $viewData['subtitle'] = __('trainingcontext.subtitle.create');
+        $viewData['trainingcontexts'] = $trainingcontexts;
+        $viewData['user'] = $user;
+
+        return view('trainingcontext.index')->with('viewData', $viewData);
     }
 }

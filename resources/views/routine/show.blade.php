@@ -17,6 +17,16 @@
             </ul>
         </div>
     </div>
-    <a href="{{ route('routine.generateReport', ['routine_id' => $viewData['routine']->getId()]) }}" class="btn btn-outline-secondary">{{ __('exercise.generate_pdf') }}</a>
+    <div>
+        <a href="{{ route('routine.generateReport', ['routine_id' => $viewData['routine']->getId()]) }}" class="btn btn-outline-secondary">{{ __('exercise.generate_pdf') }}</a>
+    </div>
+    <br>
+    <form action="{{ route('routine.delete', ['routine_id' => $viewData['routine']->getId(), 'trainingcontext_id' => $viewData['trainingcontext_id']]) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-outline-secondary mb-2" onclick="return confirm('{{ __('Are you sure you want to delete this item?') }}')">
+            {{ __('Delete') }}
+        </button>
+    </form>
 
 @endsection
