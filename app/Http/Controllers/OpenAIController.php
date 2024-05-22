@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Exercise;
 use App\Models\Routine;
 use App\Models\Trainingcontext;
 use App\Models\User;
@@ -44,12 +43,6 @@ class OpenAIController extends Controller
             'objectives' => $trainingcontext->getObjectives(),
             'specifications' => $trainingcontext->getSpecifications(),
         ]);
-
-        $prompt .= "\n\n".__('openai.prompt.exercises')."\n";
-        foreach ($exercises as $exercise) {
-            $prompt .= '- '.$exercise->getName().': '.$exercise->getMusclegroup().$exercise->getRecommendations()."\n";
-        }
-
         // Llamar a la API de OpenAI
         $response = $client->completions()->create([
             'model' => 'gpt-3.5-turbo-instruct',

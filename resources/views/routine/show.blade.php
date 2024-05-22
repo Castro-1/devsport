@@ -17,8 +17,6 @@
             </ul>
         </div>
     </div>
-
-    <a href="{{ route('exercise.index') }}" class="btn btn-outline-secondary">{{ __('exercise.view_details_button') }}</a>
     <a href="{{ route('routine.generateReport', ['routine_id' => $viewData['routine']->getId()]) }}" class="btn btn-outline-secondary">{{ __('exercise.generate_pdf') }}</a>
 
 @endsection

@@ -29,12 +29,7 @@ Route::middleware([AdminAuthMiddleware::class])->group(function () {
     Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminProductController@delete')->name('admin.product.delete');
     Route::get('/admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('admin.product.edit');
     Route::put('/admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
-
-    Route::get('/admin/exercises', 'App\Http\Controllers\Admin\AdminExerciseController@index')->name('admin.exercise.index');
-    Route::post('/admin/exercises/store', 'App\Http\Controllers\Admin\AdminExerciseController@store')->name('admin.exercise.store');
-    Route::delete('/admin/exercises/{id}/delete', 'App\Http\Controllers\Admin\AdminExerciseController@delete')->name('admin.exercise.delete');
-    Route::get('/admin/exercises/{id}/edit', 'App\Http\Controllers\Admin\AdminExerciseController@edit')->name('admin.exercise.edit');
-    Route::put('/admin/exercises/{id}/update', 'App\Http\Controllers\Admin\AdminExerciseController@update')->name('admin.exercise.update');
+    
 });
 
 // User routes -------------------------------
@@ -45,8 +40,6 @@ Route::get('/trainingcontext/{trainingcontext}', 'App\Http\Controllers\Trainingc
 Route::get('/routines/{trainingcontext_id}', 'App\Http\Controllers\RoutineController@index')->name('routines.index');
 Route::get('/routines/{routine_id}/show', 'App\Http\Controllers\RoutineController@show')->name('routine.show');
 Route::get('/routines/{routine_id}/show/pdf', 'App\Http\Controllers\RoutineController@generateReport')->name('routine.generateReport');
-Route::get('/exercise', 'App\Http\Controllers\ExerciseController@index')->name('exercise.index');
-Route::get('/exercise/{id}', 'App\Http\Controllers\ExerciseController@show')->name('exercise.show');
 Route::put('/user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
 
 // OpenAI routes -------------------------------
