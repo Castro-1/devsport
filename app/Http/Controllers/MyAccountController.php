@@ -17,6 +17,6 @@ class MyAccountController extends Controller
         $viewData['subtitle'] = __('My Orders');
         $viewData['orders'] = Order::with(['items.product'])->where('user_id', Auth::user()->getId())->get();
 
-        return view('myaccount.orders')->with('viewData', $viewData);
+        return view('myAccount.orders')->with('viewData', $viewData);
     }
 }
