@@ -2,10 +2,10 @@
 
 namespace App\Util;
 
+use App\Exports\RoutineExport;
 use App\Interfaces\ReportBuilder;
 use App\Models\Routine;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\RoutineExport;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ExcelGenerator implements ReportBuilder

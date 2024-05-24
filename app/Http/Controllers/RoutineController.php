@@ -4,12 +4,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Routine;
 use App\Interfaces\ReportBuilder;
-use Illuminate\Http\Request;
+use App\Models\Routine;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class RoutineController extends Controller
 {
@@ -67,13 +66,13 @@ class RoutineController extends Controller
         return back();
     }
 
-
     public function generateReport(int $routine_id)
     {
         $routine = Routine::findOrFail($routine_id);
 
         // Inject the ReportBuilder dependency
         return $this->reportBuilder->generateReport($routine);
+
         return back();
     }
 
@@ -92,5 +91,4 @@ class RoutineController extends Controller
 
         return view('routine.index')->with('viewData', $viewData);
     }
-
 }

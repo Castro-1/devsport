@@ -71,7 +71,7 @@ class TrainingcontextController extends Controller
 
     public function delete(Request $request, string $id): view
     {
-        
+
         $trainingcontext = Trainingcontext::findOrFail($id);
         $trainingcontext->delete();
 

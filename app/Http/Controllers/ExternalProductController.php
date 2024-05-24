@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 
@@ -14,19 +15,21 @@ class ExternalProductController extends Controller
         $viewData['subtitle'] = 'Productos';
 
         // Hacer la solicitud a la API
-        // $response = Http::get('http://35.192.79.47/public/api/products');
+        $response = Http::get('http://pixelplace.site/public/api/products');
 
-        // // Verificar si la solicitud fue exitosa
-        // if ($response->successful()) {
-        //     // Obtener los datos de los productos
-        //     $products = $response->json();
-        // } else {
-        //     // Manejar el error en caso de que la solicitud falle
-        //     $products = [];
-        // }
-
-        $jsonFile = storage_path('products.json');
-        $products = json_decode(file_get_contents($jsonFile), true);
+        try {
+            // Verificar si la solicitud fue exitosa
+            if ($response->successful()) {
+                // Obtener los datos de los productos
+                $products = $response->json();
+            } else {
+                // Manejar el error en caso de que la solicitud falle
+                $products = [];
+            }
+        } catch (Exception $e) {
+            $jsonFile = storage_path('products.json');
+            $products = json_decode(file_get_contents($jsonFile), true);
+        }
 
         $viewData['products'] = $products;
 
