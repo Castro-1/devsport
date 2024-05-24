@@ -13,7 +13,8 @@ COPY ./apache-config.conf /etc/apache2/sites-available/000-default.conf
 WORKDIR /var/www/html
 
 # Instalar dependencias de PHP
-RUN composer install \
+RUN composer require barryvdh/laravel-dompdf \
+    && composer install \
     --ignore-platform-reqs \
     --no-interaction \
     --no-plugins \
