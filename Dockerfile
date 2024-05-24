@@ -1,4 +1,4 @@
-FROM php:8.1.4-apache
+FROM php:8.2-apache
 
 # Instalar dependencias necesarias
 RUN apt-get update -y && apt-get install -y openssl zip unzip git
