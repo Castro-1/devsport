@@ -28,7 +28,7 @@ class UserTest extends TestCase
                           ->assertRedirect(route('register'))
                           ->assertSessionHasErrors(['email', 'password']);
 
-        // Prueba con datos correctos
+        
         $correctRegister = $this->post(route('register'), [
             'email' => 'testing@gmail.com',
             'password' => 'ThisIsAgoodPassword1234*',
@@ -36,7 +36,7 @@ class UserTest extends TestCase
             'name' => 'name'
         ]);
         $correctRegister->assertStatus(302)
-                        ->assertRedirect('/home') 
+                        ->assertRedirect('/') 
                         ->assertSessionHasNoErrors();
                         $this->assertDatabaseHas('users', ['email'=> 'testing@gmail.com']);
     }
@@ -72,7 +72,7 @@ class UserTest extends TestCase
             'password' => 'password123'
         ]);
         $correctLogin->assertStatus(302)
-                     ->assertRedirect('/home')
+                     ->assertRedirect('/')
                      ->assertSessionHasNoErrors();
     }
 
